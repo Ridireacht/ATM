@@ -4,6 +4,8 @@ import java.util.Scanner;
 public class ConsoleIO
 {
     private static int balance;
+    private static Client currentClient;
+
 
 
     public static void Clear()
@@ -110,23 +112,23 @@ public class ConsoleIO
 
     public static Client CreateClientAccount()
     {
-        Client currentClient = new Client();
+        Client localClient = new Client();
 
         ConsoleIO.Clear();
         ConsoleIO.ShowMenu("");
 
 
         System.out.println("Введите своё ФИО: ");
-        currentClient.FIO = ConsoleIO.GetOption("Некорректное значение! Попробуйте снова.");
+        localClient.FIO = ConsoleIO.GetOption("Некорректное значение! Попробуйте снова.");
 
         System.out.println("Введите ПИН-код (должен состоять из 4 цифр): ");
-        currentClient.PIN = ConsoleIO.GetOption(999, 10000, "ПИН-код должен состоять из 4 цифр!");
+        localClient.PIN = ConsoleIO.GetOption(999, 10000, "ПИН-код должен состоять из 4 цифр!");
 
-        currentClient.cardNumber = Client.GenerateCardNumber();
-        currentClient.accountBalance = 0;
+        localClient.cardNumber = Client.GenerateCardNumber();
+        localClient.accountBalance = 0;
 
 
-        return currentClient;
+        return localClient;
     }
 
 
