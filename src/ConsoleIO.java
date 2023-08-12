@@ -33,7 +33,7 @@ public class ConsoleIO
     }
 
 
-    public static int GetOption(int lower_boundary, int upper_boundary, String errorMessage)
+    public static int GetOption(long lower_boundary, long upper_boundary, String errorMessage)
     {
         int res;
         Scanner sc = new Scanner(System.in);
@@ -134,10 +134,14 @@ public class ConsoleIO
 
     public static void EnterClientAccount()
     {
+        Client localClient = new Client();
+
         ConsoleIO.Clear();
         ConsoleIO.ShowMenu("");
 
-        System.out.println("Введите своё ФИО: ");
+
+        System.out.println("Введите номер своей карты в формате XXXXXXXXXXXXXXXX: ");
+        localClient.cardNumber = ConsoleIO.GetOption(1000000000000000L, 9999999999999999L, "Номер карты должен состоять из 16 цифр! Попробуйте снова.");
 
         System.out.println("Введите свой ПИН-код (длина - 4 символа): ");
     }
