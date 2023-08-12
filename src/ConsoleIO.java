@@ -10,6 +10,18 @@ public class ConsoleIO
     }
 
 
+    public static void ShowMenu()
+    {
+        System.out.println("////////////////////////");
+        System.out.println("/       БАНКОМАТ       /");
+        System.out.println("////////////////////////");
+
+        System.out.println("\n Баланс банкомата: 1337");
+
+        System.out.println("\nВозможные опции: создать счёт (1), войти в счёт(2).");
+    }
+
+
     public static int GetOption()
     {
         int res;
