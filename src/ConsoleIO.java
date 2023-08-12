@@ -10,15 +10,15 @@ public class ConsoleIO
     }
 
 
-    public static void ShowMenu()
+    public static void ShowMenu(int balance, String contentString)
     {
         System.out.println("////////////////////////");
         System.out.println("/       БАНКОМАТ       /");
         System.out.println("////////////////////////");
 
-        System.out.println("\n Баланс банкомата: 1337");
+        System.out.println("\n Баланс банкомата: " + balance);
 
-        System.out.println("\nВозможные опции: создать счёт (1), войти в счёт(2).");
+        System.out.println("\n" + contentString);
     }
 
 
@@ -43,7 +43,7 @@ public class ConsoleIO
 
             res = sc.nextInt();
 
-            if (res > 0 && res < 5)
+            if (res > 0 && res < 3)
                 break;
 
             else
