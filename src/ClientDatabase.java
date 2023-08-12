@@ -11,4 +11,13 @@ public class ClientDatabase
     {
         return cardNumbers.contains(number) ? true : false;
     }
+
+
+    public static void UpdateCardNumbersList()
+    {
+        cardNumbers.clear();
+
+        for(var client : clients)
+            cardNumbers.add(client.cardNumber);
+    }
 }

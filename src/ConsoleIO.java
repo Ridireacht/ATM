@@ -151,7 +151,7 @@ public class ConsoleIO
             else
                 System.out.println("Номер карты не найден! Попробуйте снова.");
         }
-        
+
 
         System.out.println("Введите свой ПИН-код (длина - 4 символа): ");
     }
