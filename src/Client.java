@@ -8,7 +8,13 @@ public class Client
 
     public static long GenerateCardNumber()
     {
-        long number = 1000000000000000L + (long) (Math.random() * (9999999999999999L - 1000000000000000L));
+        long number;
+
+        do
+        {
+            number = 1000000000000000L + (long) (Math.random() * (9999999999999999L - 1000000000000000L));
+        }
+        while(ClientDatabase.CardNumberExists(number));
 
         return number;
     }
