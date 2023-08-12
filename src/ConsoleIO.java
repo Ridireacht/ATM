@@ -90,7 +90,7 @@ public class ConsoleIO
 
         System.out.print("Введите ПИН-код: ");
 
-        
+
         for (int i = 1; i < 4; i++)
         {
             localPIN = ConsoleIO.GetOption(999, 10000, "ПИН-код должен состоять из 4 цифр!");
@@ -111,8 +111,6 @@ public class ConsoleIO
     public static ClientAccount CreateClientAccount()
     {
         ClientAccount currentClient = new ClientAccount();
-        Scanner sc = new Scanner(System.in);
-
 
         ConsoleIO.Clear();
         ConsoleIO.ShowMenu("");
@@ -124,7 +122,9 @@ public class ConsoleIO
         System.out.println("Введите ПИН-код (должен состоять из 4 цифр): ");
         currentClient.PIN = ConsoleIO.GetOption(999, 10000, "ПИН-код должен состоять из 4 цифр!");
 
+        currentClient.cardNumber = ClientAccount.GenerateCardNumber();
         currentClient.accountBalance = 0;
+
 
         return currentClient;
     }
