@@ -5,8 +5,10 @@ public class ConsoleIO
 {
     public static int GetOption()
     {
-        int res;
+        int res = 0;
+        boolean isSuitable = false;
         Scanner sc = new Scanner(System.in);
+
 
         System.out.print("Введите ваш выбор: ");
 
@@ -14,13 +16,20 @@ public class ConsoleIO
         {
             while(!sc.hasNextInt())
             {
-                System.out.println("\nНеверный выбор! Попробуйте снова.");
+                System.out.println("\nНекорректное значение! Попробуйте снова.");
                 sc.next();
             }
 
+
             res = sc.nextInt();
 
-        } while(res > 4 || res < 1);
+            if (res > 0 && res < 5)
+                isSuitable = true;
+
+            if (!isSuitable)
+                System.out.println("\nЗначение должно быть в пределах от 1 до 4! Попробуйте снова.");
+
+        } while(!isSuitable);
 
 
         sc.close();
