@@ -3,6 +3,9 @@ import java.util.Scanner;
 
 public class ConsoleIO
 {
+    private static int balance;
+
+
     public static void Clear()
     {
         System.out.print("\033[H\033[2J");
@@ -10,7 +13,7 @@ public class ConsoleIO
     }
 
 
-    public static void ShowMenu(int balance, String contentString)
+    public static void ShowMenu(String contentString)
     {
         System.out.println("////////////////////////");
         System.out.println("/       БАНКОМАТ       /");
@@ -19,6 +22,12 @@ public class ConsoleIO
         System.out.println("\n Баланс банкомата: " + balance);
 
         System.out.println("\n" + contentString);
+    }
+
+
+    public static void SetBalance(int sum)
+    {
+        balance = sum;
     }
 
 
@@ -94,10 +103,10 @@ public class ConsoleIO
     }
 
 
-    public static void CreateClient(int balance)
+    public static void CreateClient()
     {
         ConsoleIO.Clear();
-        ConsoleIO.ShowMenu(balance, "");
+        ConsoleIO.ShowMenu("");
 
         System.out.println("Введите своё ФИО: ");
 
