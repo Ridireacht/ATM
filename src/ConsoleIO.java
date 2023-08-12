@@ -3,6 +3,13 @@ import java.util.Scanner;
 
 public class ConsoleIO
 {
+    public static void Clear()
+    {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
+
     public static int GetOption()
     {
         int res;
