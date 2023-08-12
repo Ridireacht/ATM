@@ -87,29 +87,16 @@ public class ConsoleIO
     public static boolean ValidatePIN(int realPIN)
     {
         int localPIN;
-        Scanner sc = new Scanner(System.in);
 
         System.out.print("Введите ПИН-код: ");
 
-
-        // На угадывание PIN даётся 3 попытки
+        
         for (int i = 1; i < 4; i++)
         {
-            // Перебираем входной поток, пока не найдём там int
-            while(!sc.hasNextInt())
-            {
-                System.out.println("\nНекорректное значение! Попробуйте снова.");
-                sc.next();
-            }
-
-
-            localPIN = sc.nextInt();
+            localPIN = ConsoleIO.GetOption(999, 10000, "ПИН-код должен состоять из 4 цифр!");
 
             if (localPIN == realPIN)
-            {
-                sc.close();
                 return true;
-            }
 
             else if (i != 3)
                 System.out.println("\nНеправильный ПИН-код! Осталось попыток: " + (3 - i));
@@ -117,7 +104,6 @@ public class ConsoleIO
 
 
         System.out.println("\nПИН-код был неверно введён 3 раза, банкомат заблокирован.");
-        sc.close();
         return false;
     }
 
