@@ -39,7 +39,7 @@ public class ConsoleIO
 
     public static boolean GetPIN(int realPIN)
     {
-        int res;
+        int localPIN;
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Введите ПИН-код: ");
@@ -56,20 +56,21 @@ public class ConsoleIO
             }
 
 
-            res = sc.nextInt();
+            localPIN = sc.nextInt();
 
-            if (res == realPIN)
+            if (localPIN == realPIN)
             {
                 sc.close();
                 return true;
             }
 
-            else
+            else if (i != 3)
                 System.out.println("\nНеправильный ПИН-код! Осталось попыток: " + (3 - i));
         }
 
 
         System.out.println("\nПИН-код был неверно введён 3 раза, банкомат заблокирован.");
+        sc.close();
         return false;
     }
 }
