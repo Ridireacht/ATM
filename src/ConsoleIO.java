@@ -5,14 +5,25 @@ public class ConsoleIO
 {
     public static int GetOption()
     {
+        int res;
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Введите ваш выбор: ");
+        System.out.print("Введите ваш выбор: ");
 
-        while(!sc.hasNextInt())
-            System.out.println("Некорректный выбор! Попробуйте снова\n");
+        do
+        {
+            while(!sc.hasNextInt())
+            {
+                System.out.println("\nНеверный выбор! Попробуйте снова.");
+                sc.next();
+            }
+
+            res = sc.nextInt();
+
+        } while(res > 4 || res < 1);
+
 
         sc.close();
-        return sc.nextInt();
+        return res;
     }
 }
