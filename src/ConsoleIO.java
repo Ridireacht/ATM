@@ -103,7 +103,18 @@ public class ConsoleIO
     }
 
 
-    public static void CreateClient()
+    public static void CreateClientAccount()
+    {
+        ConsoleIO.Clear();
+        ConsoleIO.ShowMenu("");
+
+        System.out.println("Введите своё ФИО: ");
+
+        System.out.println("Введите свой ПИН-код (длина - 4 символа): ");
+    }
+
+
+    public static void EnterClientAccount()
     {
         ConsoleIO.Clear();
         ConsoleIO.ShowMenu("");

@@ -16,12 +16,13 @@ public class Main
             {
                 case(1):
                 {
-                    ConsoleIO.CreateClient();
+                    ConsoleIO.CreateClientAccount();
                     break;
                 }
 
                 case(2):
                 {
+                    ConsoleIO.EnterClientAccount();
                     break;
                 }
 
