@@ -36,13 +36,9 @@ public class ConsoleIO
         int res;
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Введите ваш выбор: ");
 
-
-        // Цикл работает до тех пор, пока не будет найден подходящий int
         while(true)
         {
-            // Перебираем входной поток, пока не найдём там int
             while(!sc.hasNextInt())
             {
                 System.out.println("\nНекорректное значение! Попробуйте снова.");
@@ -62,6 +58,29 @@ public class ConsoleIO
 
         sc.close();
         return res;
+    }
+
+
+    public static String GetOption(String errorMessage)
+    {
+        String input;
+        Scanner sc = new Scanner(System.in);
+
+
+        while(true)
+        {
+            input = sc.next();
+
+            if (input.matches("[а-яА-Я]+"))
+                break;
+
+            else
+                System.out.println("\nНекорректное значение! Попробуйте снова.");;
+        }
+
+
+        sc.close();
+        return input;
     }
 
 
@@ -107,7 +126,6 @@ public class ConsoleIO
     {
         ClientAccount currentClient = new ClientAccount();
         Scanner sc = new Scanner(System.in);
-        String input;
 
 
         ConsoleIO.Clear();
@@ -115,23 +133,11 @@ public class ConsoleIO
 
 
         System.out.println("Введите своё ФИО: ");
+        currentClient.FIO = ConsoleIO.GetOption("Некорректное значение! Попробуйте снова.");
 
-        while(true)
-        {
-            input = sc.next();
-
-            if (input.matches("[а-яА-Я]+"))
-                break;
-
-            else
-                System.out.println("\nНекорректное значение! Попробуйте снова.");;
-        }
-
-        currentClient.FIO = input;
-
-
-
+        System.out.println("Введите ПИН-код (должен состоять из 4 цифр): ");
         currentClient.PIN = ConsoleIO.GetOption(999, 10000, "ПИН-код должен состоять из 4 цифр!");
+
         currentClient.accountBalance = 0;
 
         return currentClient;
