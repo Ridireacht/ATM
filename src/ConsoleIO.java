@@ -140,8 +140,18 @@ public class ConsoleIO
         ConsoleIO.ShowMenu("");
 
 
-        System.out.println("Введите номер своей карты в формате XXXXXXXXXXXXXXXX: ");
-        localClient.cardNumber = ConsoleIO.GetOption(1000000000000000L, 9999999999999999L, "Номер карты должен состоять из 16 цифр! Попробуйте снова.");
+        while (true)
+        {
+            System.out.println("Введите номер своей карты в формате XXXXXXXXXXXXXXXX: ");
+            localClient.cardNumber = ConsoleIO.GetOption(1000000000000000L, 9999999999999999L, "Номер карты должен состоять из 16 цифр! Попробуйте снова.");
+
+            if (ClientDatabase.CardNumberExists(localClient.cardNumber))
+                break;
+
+            else
+                System.out.println("Номер карты не найден! Попробуйте снова.");
+        }
+        
 
         System.out.println("Введите свой ПИН-код (длина - 4 символа): ");
     }
