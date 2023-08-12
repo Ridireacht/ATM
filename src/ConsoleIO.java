@@ -108,9 +108,9 @@ public class ConsoleIO
     }
 
 
-    public static ClientAccount CreateClientAccount()
+    public static Client CreateClientAccount()
     {
-        ClientAccount currentClient = new ClientAccount();
+        Client currentClient = new Client();
 
         ConsoleIO.Clear();
         ConsoleIO.ShowMenu("");
@@ -122,7 +122,7 @@ public class ConsoleIO
         System.out.println("Введите ПИН-код (должен состоять из 4 цифр): ");
         currentClient.PIN = ConsoleIO.GetOption(999, 10000, "ПИН-код должен состоять из 4 цифр!");
 
-        currentClient.cardNumber = ClientAccount.GenerateCardNumber();
+        currentClient.cardNumber = Client.GenerateCardNumber();
         currentClient.accountBalance = 0;
 
 
