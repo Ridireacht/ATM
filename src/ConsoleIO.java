@@ -92,4 +92,15 @@ public class ConsoleIO
         sc.close();
         return false;
     }
+
+
+    public static void CreateClient(int balance)
+    {
+        ConsoleIO.Clear();
+        ConsoleIO.ShowMenu(balance, "");
+
+        System.out.println("Введите своё ФИО: ");
+
+        System.out.println("Введите свой ПИН-код (длина - 4 символа): ");
+    }
 }
