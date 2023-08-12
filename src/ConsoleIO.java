@@ -31,7 +31,7 @@ public class ConsoleIO
     }
 
 
-    public static int GetOption()
+    public static int GetOption(int lower_boundary, int upper_boundary, String errorMessage)
     {
         int res;
         Scanner sc = new Scanner(System.in);
@@ -52,11 +52,11 @@ public class ConsoleIO
 
             res = sc.nextInt();
 
-            if (res > 0 && res < 3)
+            if (res > lower_boundary && res < upper_boundary)
                 break;
 
             else
-                System.out.println("\nЗначение должно быть в пределах от 1 до 4! Попробуйте снова.");
+                System.out.println("\n" + errorMessage);
         }
 
 
@@ -108,7 +108,6 @@ public class ConsoleIO
         ClientAccount currentClient = new ClientAccount();
         Scanner sc = new Scanner(System.in);
         String input;
-        int PIN;
 
 
         ConsoleIO.Clear();
@@ -152,8 +151,7 @@ public class ConsoleIO
                 System.out.println("\nПИН-код должен состоять из 4 цифр! Попробуйте снова.");
         }
 
-        currentClient.PIN = PIN;
-
+        currentClient.PIN = ConsoleIO.GetOption(999, 10000, "ПИН-код должен состоять из 4 цифр!");
 
         currentClient.accountBalance = 0;
 
