@@ -37,7 +37,7 @@ public class ConsoleIO
     }
 
 
-    public static boolean GetPIN(int realPIN)
+    public static boolean ValidatePIN(int realPIN)
     {
         int localPIN;
         Scanner sc = new Scanner(System.in);
