@@ -1,7 +1,7 @@
 public class ClientAccount
 {
-    private String FIO;
-    private String card_number;
-    private int PIN;
-    private int accountBalance;
+    public String FIO;
+    public String card_number;
+    public int PIN;
+    public int accountBalance;
 }
