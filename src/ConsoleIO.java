@@ -130,29 +130,8 @@ public class ConsoleIO
         currentClient.FIO = input;
 
 
-        System.out.println("Введите свой ПИН-код (длина - 4 символа): ");
-
-        while(true)
-        {
-            // Перебираем входной поток, пока не найдём там int
-            while(!sc.hasNextInt())
-            {
-                System.out.println("\nНекорректное значение! Попробуйте снова.");
-                sc.next();
-            }
-
-
-            PIN = sc.nextInt();
-
-            if (PIN > 0 && PIN < 10000)
-                break;
-
-            else
-                System.out.println("\nПИН-код должен состоять из 4 цифр! Попробуйте снова.");
-        }
 
         currentClient.PIN = ConsoleIO.GetOption(999, 10000, "ПИН-код должен состоять из 4 цифр!");
-
         currentClient.accountBalance = 0;
 
         return currentClient;
