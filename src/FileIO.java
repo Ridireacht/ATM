@@ -1,8 +1,9 @@
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
 
 
 public class FileIO
@@ -16,7 +17,7 @@ public class FileIO
         FileWriter fw = new FileWriter("database.txt");
 
 
-        fw.write(balance + "\n");
+        fw.write(balance + "\n\n");
 
         for(var client : clientList)
         {
@@ -28,7 +29,7 @@ public class FileIO
 
             fw.write("\n");
         }
-        
+
 
         fw.close();
     }
@@ -37,6 +38,32 @@ public class FileIO
     public static void ReadFromFile() throws IOException
     {
         FileReader fr = new FileReader("database.txt");
+        Scanner sc = new Scanner(fr);
+
+
+        if (sc.hasNextLine())
+        {
+            balance = Integer.parseInt(sc.nextLine());
+            sc.next();
+        }
+
+        else
+            return;
+
+
+        while(sc.hasNextLine())
+        {
+            clientList.add(new Client());
+
+            clientList.get(clientList.size() - 1).accountBalance = Integer.parseInt(sc.nextLine());
+            clientList.get(clientList.size() - 1).FIO = sc.nextLine();
+            clientList.get(clientList.size() - 1).PIN = Integer.parseInt(sc.nextLine());
+            clientList.get(clientList.size() - 1).cardNumber = Long.parseLong(sc.nextLine());
+            clientList.get(clientList.size() - 1).availableSince = new Date(Long.parseLong(sc.nextLine()));
+
+            sc.next();
+        }
+
 
         fr.close();
     }
