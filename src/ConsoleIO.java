@@ -143,7 +143,14 @@ public class ConsoleIO
 
     public static void AddMoney()
     {
-        
+        int sum = ConsoleIO.GetOption(0, 1000000, "Сумма пополнения должна быть больше 0 и меньше 1000000!");
+
+        balance += sum;
+        currentClient.accountBalance += sum;
+
+        System.out.println("Счёт успешно пополнен! Для возвращения нажмите любую кнопку...");
+        Scanner sc = new Scanner(System.in);
+        sc.next();
     }
 
 
@@ -229,12 +236,13 @@ public class ConsoleIO
                 {
                     case(1):
                     {
-
+                        ConsoleIO.AddMoney();
                         break;
                     }
 
                     case(2):
                     {
+                        ConsoleIO.WithdrawMoney();
                         break;
                     }
 
