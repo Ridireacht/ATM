@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Optional;
 
 
 public class ClientDatabase
@@ -13,8 +12,8 @@ public class ClientDatabase
     }
 
 
-    public static Optional<Client> GetClientByCard(long number)
+    public static Client GetClientByCard(long number)
     {
-        return clients.stream().filter(o -> o.cardNumber == number).findFirst();
+        return clients.stream().filter(o -> o.cardNumber == number).findFirst().orElse(null);
     }
 }
