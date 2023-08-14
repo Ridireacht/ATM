@@ -177,7 +177,18 @@ public class ConsoleIO
         }
 
 
+
         currentClient = ClientDatabase.GetClientByCard(currentClient.cardNumber);
+
+        if (currentClient.availableSince.after(new Date()))
+        {
+            System.out.println("Данный аккаунт всё ещё заблокирован! Нажмите любую кнопку, чтобы выйти в главное меню...");
+            Scanner sc = new Scanner(System.in);
+            sc.next();
+        }
+
+
+
         System.out.println("Введите свой ПИН-код (длина - 4 символа): ");
 
         if (isValidatedPIN())
@@ -191,6 +202,10 @@ public class ConsoleIO
             cal.setTime(currentClient.availableSince);
             cal.add(Calendar.DATE, 1);
             currentClient.availableSince = cal.getTime();
+
+            System.out.println("Нажмите любую кнопку, чтобы выйти в главное меню...");
+            Scanner sc = new Scanner(System.in);
+            sc.next();
         }
     }
 }
