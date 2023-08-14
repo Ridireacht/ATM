@@ -15,6 +15,21 @@ public class FileIO
     {
         FileWriter fw = new FileWriter("database.txt");
 
+
+        fw.write(balance + "\n");
+
+        for(var client : clientList)
+        {
+            fw.write(client.accountBalance + "\n");
+            fw.write(client.FIO + "\n");
+            fw.write(client.PIN + "\n");
+            fw.write(client.cardNumber + "\n");
+            fw.write(client.availableSince + "\n");
+
+            fw.write("\n");
+        }
+        
+
         fw.close();
     }
 
