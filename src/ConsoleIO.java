@@ -110,7 +110,7 @@ public class ConsoleIO
     }
 
 
-    public static boolean ValidatePIN(int realPIN)
+    public static boolean isValidatedPIN()
     {
         int localPIN;
 
@@ -121,7 +121,7 @@ public class ConsoleIO
         {
             localPIN = ConsoleIO.GetOption(999, 10000, "ПИН-код должен состоять из 4 цифр!");
 
-            if (localPIN == realPIN)
+            if (localPIN == currentClient.PIN)
                 return true;
 
             else if (i != 3)
@@ -129,7 +129,7 @@ public class ConsoleIO
         }
 
 
-        System.out.println("\nПИН-код был неверно введён 3 раза, банкомат заблокирован.");
+        System.out.println("\nПИН-код был неверно введён 3 раза, аккаунт заблокирован на день.");
         return false;
     }
 
@@ -180,10 +180,8 @@ public class ConsoleIO
         currentClient = ClientDatabase.GetClientByCard(currentClient.cardNumber);
         System.out.println("Введите свой ПИН-код (длина - 4 символа): ");
 
-        if (ValidatePIN(currentClient.PIN))
-        {
+        if (isValidatedPIN())
             ConsoleIO.ShowAccount("");
-        }
 
         else
         {
