@@ -148,7 +148,7 @@ public class ConsoleIO
         balance += sum;
         currentClient.accountBalance += sum;
 
-        System.out.println("Счёт успешно пополнен! Для возвращения нажмите любую кнопку...");
+        System.out.println("Счёт успешно пополнен! Для возврата к аккаунту нажмите любую кнопку...");
         Scanner sc = new Scanner(System.in);
         sc.next();
     }
@@ -156,7 +156,14 @@ public class ConsoleIO
 
     public static void WithdrawMoney()
     {
+        int sum = ConsoleIO.GetOption(0, currentClient.accountBalance + 1,  "Сумма снятия должна быть больше 0 и меньше" + currentClient.accountBalance + "!");
 
+        balance -= sum;
+        currentClient.accountBalance -= sum;
+
+        System.out.println("Деньги успешно выведены! Для возврата к аккаунту нажмите любую кнопку...");
+        Scanner sc = new Scanner(System.in);
+        sc.next();
     }
 
 
