@@ -27,6 +27,18 @@ public class ConsoleIO
     }
 
 
+    public static void ShowError(String errorString)
+    {
+        System.out.println("////////////////////////");
+        System.out.println("/       БАНКОМАТ       /");
+        System.out.println("////////////////////////");
+
+        System.out.println("\n ОШИБКА!");
+
+        System.out.println("\n" + errorString);
+    }
+
+
     public static void SetBalance(int sum)
     {
         balance = sum;
