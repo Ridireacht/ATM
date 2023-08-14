@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Optional;
 
 
 public class ClientDatabase
@@ -9,5 +10,11 @@ public class ClientDatabase
     public static boolean CardNumberExists(long number)
     {
         return clients.stream().anyMatch(o -> o.cardNumber == number);
+    }
+
+
+    public static Optional<Client> GetClientByCard(long number)
+    {
+        return clients.stream().filter(o -> o.cardNumber == number).findFirst();
     }
 }
