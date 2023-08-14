@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class ClientDatabase
 {
-    private static ArrayList<Client> clients = new ArrayList<Client>();
+    public static ArrayList<Client> clients = new ArrayList<Client>();
 
 
     public static boolean CardNumberExists(long number)
@@ -18,25 +18,7 @@ public class ClientDatabase
     }
 
 
-    public static ArrayList<Client> GetClients()
-    {
-        return clients;
-    }
-
-
-    public static void SetClients(ArrayList<Client> clientList)
-    {
-        clients = clientList;
-    }
-
-
     public static void UpdateClient(Client client)
-    {
-
-    }
-
-
-    public static void AddNewClient(Client client)
     {
 
     }
