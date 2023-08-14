@@ -16,4 +16,16 @@ public class ClientDatabase
     {
         return clients.stream().filter(o -> o.cardNumber == number).findFirst().orElse(null);
     }
+
+
+    public static ArrayList<Client> GetClients()
+    {
+        return clients;
+    }
+
+
+    public static void SetClients(ArrayList<Client> clientList)
+    {
+        clients = clientList;
+    }
 }
