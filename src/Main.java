@@ -3,7 +3,12 @@ public class Main
     public static void main(String[] args)
     {
         boolean toContinue = true;
-        ConsoleIO.SetBalance(1337);
+
+
+        // Подготовка к работе
+        FileIO.ReadFromFile();
+        ClientDatabase.SetClients(FileIO.GetClientList());
+        ConsoleIO.SetBalance(FileIO.GetBalance());
 
 
         do
@@ -34,5 +39,8 @@ public class Main
             }
 
         } while(toContinue);
+
+
+        FileIO.WriteToFile(1337, ClientDatabase.GetClients());
     }
 }
