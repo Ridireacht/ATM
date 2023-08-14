@@ -143,7 +143,7 @@ public class ConsoleIO
         Client localClient = new Client();
 
         ConsoleIO.Clear();
-        ConsoleIO.ShowMenu("");
+        ConsoleIO.ShowMenu();
 
 
         System.out.println("Введите своё ФИО (кириллицей): ");
@@ -165,7 +165,7 @@ public class ConsoleIO
         Client localClient = new Client();
 
         ConsoleIO.Clear();
-        ConsoleIO.ShowMenu("");
+        ConsoleIO.ShowMenu();
 
 
         while (true)
@@ -173,7 +173,7 @@ public class ConsoleIO
             System.out.println("Введите номер своей карты в формате XXXXXXXXXXXXXXXX: ");
             localClient.cardNumber = ConsoleIO.GetOption(1000000000000000L, 9999999999999999L, "Номер карты должен состоять из 16 цифр! Попробуйте снова.");
 
-            if (ClientDatabase.CardNumberExists(localClient.cardNumber))
+            if (ClientDatabase.GetClientByCard(localClient.cardNumber) != null)
                 break;
 
             else

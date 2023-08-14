@@ -18,7 +18,7 @@ public class Client
         {
             number = 1000000000000000L + (long) (Math.random() * (9999999999999999L - 1000000000000000L));
         }
-        while(ClientDatabase.CardNumberExists(number));
+        while(ClientDatabase.GetClientByCard(number) == null);
 
         return number;
     }

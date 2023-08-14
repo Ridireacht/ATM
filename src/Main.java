@@ -20,8 +20,9 @@ public class Main
             System.exit(0);
         }
 
-        ClientDatabase.SetClients(FileIO.GetClientList());
+        ClientDatabase.clients = FileIO.GetClientList();
         ConsoleIO.SetBalance(FileIO.GetBalance());
+
         boolean toContinue = true;
 
 
@@ -57,7 +58,7 @@ public class Main
 
         try
         {
-            FileIO.WriteToFile(1337, ClientDatabase.GetClients());
+            FileIO.WriteToFile(1337, ClientDatabase.clients);
         }
 
         catch(IOException e)
