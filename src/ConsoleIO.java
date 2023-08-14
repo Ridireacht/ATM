@@ -105,7 +105,7 @@ public class ConsoleIO
                 break;
 
             else
-                System.out.println("\nНекорректное значение! Попробуйте снова.");;
+                System.out.println("\n" + errorMessage);;
         }
 
 
@@ -146,7 +146,7 @@ public class ConsoleIO
         ConsoleIO.ShowMenu("");
 
 
-        System.out.println("Введите своё ФИО: ");
+        System.out.println("Введите своё ФИО (кириллицей): ");
         localClient.FIO = ConsoleIO.GetOption("Некорректное значение! Попробуйте снова.");
 
         System.out.println("Введите ПИН-код (должен состоять из 4 цифр): ");

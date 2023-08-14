@@ -54,7 +54,7 @@ public class Main
 
         } while(toContinue);
 
-        
+
         try
         {
             FileIO.WriteToFile(1337, ClientDatabase.GetClients());
