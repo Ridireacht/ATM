@@ -156,7 +156,18 @@ public class ConsoleIO
 
     public static void WithdrawMoney()
     {
-        int sum = ConsoleIO.GetOption(0, currentClient.accountBalance + 1,  "Сумма снятия должна быть больше 0 и меньше" + currentClient.accountBalance + "!");
+        int sum;
+
+        while (true)
+        {
+            sum = ConsoleIO.GetOption(0, currentClient.accountBalance + 1,  "Сумма снятия должна быть больше 0 и меньше" + currentClient.accountBalance + "!");
+
+            if (sum > balance)
+                System.out.println("Снятие невозможно: в банкомате есть всего лишь " + balance + "! Выберите другую сумму.");
+
+            else
+                break;
+        }
 
         balance -= sum;
         currentClient.accountBalance -= sum;
