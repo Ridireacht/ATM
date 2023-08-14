@@ -12,7 +12,7 @@ public class FileIO
 
     }
 
-    
+
     public static void ReadFromFile()
     {
 
@@ -21,12 +21,12 @@ public class FileIO
 
     public static int GetBalance()
     {
-
+        return balance;
     }
 
 
     public static ArrayList<Client> GetClientList()
     {
-
+        return clientList;
     }
 }
