@@ -141,6 +141,18 @@ public class ConsoleIO
     }
 
 
+    public static void AddMoney()
+    {
+        
+    }
+
+
+    public static void WithdrawMoney()
+    {
+
+    }
+
+
     public static void CreateClientAccount()
     {
         ConsoleIO.Clear();
@@ -206,7 +218,35 @@ public class ConsoleIO
         System.out.println("Введите свой ПИН-код (длина - 4 символа): ");
 
         if (isValidatedPIN())
-            ConsoleIO.ShowAccount("");
+        {
+            boolean toContinue = true;
+
+            do
+            {
+                ConsoleIO.ShowAccount();
+
+                switch(ConsoleIO.GetOption(0, 4, "Выбор должен быть от 1 до 3! Попробуйте снова."))
+                {
+                    case(1):
+                    {
+
+                        break;
+                    }
+
+                    case(2):
+                    {
+                        break;
+                    }
+
+                    case(3):
+                    {
+                        toContinue = false;
+                        break;
+                    }
+                }
+
+            } while(toContinue);
+        }
 
         else
         {
