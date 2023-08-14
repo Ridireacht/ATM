@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 
+
 public class FileIO
 {
-    int balance;
-    ArrayList<Client> clientList;
+    private static int balance;
+    private static ArrayList<Client> clientList;
 
 
     public static void WriteToFile(int balance, ArrayList<Client> clientList)
@@ -11,6 +12,7 @@ public class FileIO
 
     }
 
+    
     public static void ReadFromFile()
     {
 
@@ -25,6 +27,6 @@ public class FileIO
 
     public static ArrayList<Client> GetClientList()
     {
-        
+
     }
 }
