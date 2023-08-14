@@ -1,9 +1,13 @@
+import java.util.Date;
+
+
 public class Client
 {
     public String FIO;
     public long cardNumber;
     public int PIN;
     public int accountBalance;
+    public Date availableSince = new Date();
 
 
     public static long GenerateCardNumber()
