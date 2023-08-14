@@ -1,14 +1,28 @@
+import java.io.IOException;
+import java.util.Scanner;
+
 public class Main
 {
     public static void main(String[] args)
     {
-        boolean toContinue = true;
-
-
         // Подготовка к работе
-        FileIO.ReadFromFile();
+        try
+        {
+            FileIO.ReadFromFile();
+        }
+
+        catch(IOException e)
+        {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.println("При чтении файла возникла непредвиденная ошибка! Нажмите любую кнопку, чтобы выйти...");
+            sc.next();
+            System.exit(0);
+        }
+
         ClientDatabase.SetClients(FileIO.GetClientList());
         ConsoleIO.SetBalance(FileIO.GetBalance());
+        boolean toContinue = true;
 
 
         do
@@ -40,7 +54,19 @@ public class Main
 
         } while(toContinue);
 
+        
+        try
+        {
+            FileIO.WriteToFile(1337, ClientDatabase.GetClients());
+        }
 
-        FileIO.WriteToFile(1337, ClientDatabase.GetClients());
+        catch(IOException e)
+        {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.println("При записи файла возникла непредвиденная ошибка! Нажмите любую кнопку, чтобы выйти...");
+            sc.next();
+            System.exit(0);
+        }
     }
 }
