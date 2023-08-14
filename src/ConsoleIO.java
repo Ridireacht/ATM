@@ -39,6 +39,22 @@ public class ConsoleIO
     }
 
 
+    public static void ShowAccount(String errorString)
+    {
+        System.out.println("////////////////////////");
+        System.out.println("/       БАНКОМАТ       /");
+        System.out.println("////////////////////////");
+
+        System.out.println("\n Баланс банкомата: " + balance);
+
+        System.out.println("\nЗдравствуйте, " + currentClient.FIO + "!");
+
+        System.out.println("\nБаланс на вашем счету: " + currentClient.accountBalance);
+
+        System.out.println("\nВыберите дальнейшее действие: внести средства (1), снять средства (2), выйти из аккаунта (3).");
+    }
+
+
     public static void SetBalance(int sum)
     {
         balance = sum;
