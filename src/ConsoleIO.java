@@ -20,6 +20,8 @@ public class ConsoleIO
 
     public static void ShowMenu(String additionalContent)
     {
+        ConsoleIO.Clear();
+
         System.out.println("////////////////////////");
         System.out.println("/       БАНКОМАТ       /");
         System.out.println("////////////////////////");
@@ -32,6 +34,8 @@ public class ConsoleIO
 
     public static void ShowError(String errorString)
     {
+        ConsoleIO.Clear();
+
         System.out.println("////////////////////////");
         System.out.println("/       БАНКОМАТ       /");
         System.out.println("////////////////////////");
@@ -42,8 +46,10 @@ public class ConsoleIO
     }
 
 
-    public static void ShowAccount(String errorString)
+    public static void ShowAccount()
     {
+        ConsoleIO.Clear();
+
         System.out.println("////////////////////////");
         System.out.println("/       БАНКОМАТ       /");
         System.out.println("////////////////////////");

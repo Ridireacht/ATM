@@ -28,7 +28,6 @@ public class Main
 
         do
         {
-            ConsoleIO.Clear();
             ConsoleIO.ShowMenu("Возможные опции: создать счёт (1), войти в счёт (2), выйти (3).");
 
 
