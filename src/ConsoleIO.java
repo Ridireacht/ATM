@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class ConsoleIO
 {
-    private static int balance;
+    public static int balance;
     private static Client currentClient;
 
 
@@ -52,12 +52,6 @@ public class ConsoleIO
         System.out.println("\nБаланс на вашем счету: " + currentClient.accountBalance);
 
         System.out.println("\nВыберите дальнейшее действие: внести средства (1), снять средства (2), выйти из аккаунта (3).");
-    }
-
-
-    public static void SetBalance(int sum)
-    {
-        balance = sum;
     }
 
 

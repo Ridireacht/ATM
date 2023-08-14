@@ -9,6 +9,8 @@ public class Main
         try
         {
             FileIO.ReadFromFile();
+            ClientDatabase.clients = FileIO.GetClientList();
+            ConsoleIO.balance = FileIO.GetBalance();
         }
 
         catch(IOException e)
@@ -20,11 +22,8 @@ public class Main
             System.exit(0);
         }
 
-        ClientDatabase.clients = FileIO.GetClientList();
-        ConsoleIO.SetBalance(FileIO.GetBalance());
 
         boolean toContinue = true;
-
 
         do
         {
