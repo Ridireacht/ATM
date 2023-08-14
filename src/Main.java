@@ -29,7 +29,7 @@ public class Main
         do
         {
             ConsoleIO.Clear();
-            ConsoleIO.ShowMenu();
+            ConsoleIO.ShowMenu("Возможные опции: создать счёт (1), войти в счёт (2), выйти (3).");
 
 
             switch(ConsoleIO.GetOption(0, 4, "Выбор должен быть от 1 до 3! Попробуйте снова."))

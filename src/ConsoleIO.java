@@ -15,7 +15,7 @@ public class ConsoleIO
     }
 
 
-    public static void ShowMenu()
+    public static void ShowMenu(String additionalContent)
     {
         System.out.println("////////////////////////");
         System.out.println("/       БАНКОМАТ       /");
@@ -23,7 +23,7 @@ public class ConsoleIO
 
         System.out.println("\n Баланс банкомата: " + balance);
 
-        System.out.println("\nВозможные опции: создать счёт (1), войти в счёт (2), выйти (3).");
+        System.out.println("\n" + additionalContent);
     }
 
 
@@ -135,7 +135,7 @@ public class ConsoleIO
     public static void CreateClientAccount()
     {
         ConsoleIO.Clear();
-        ConsoleIO.ShowMenu();
+        ConsoleIO.ShowMenu("");
 
 
         System.out.println("Введите своё ФИО (кириллицей): ");
@@ -161,7 +161,7 @@ public class ConsoleIO
         Client localClient = new Client();
 
         ConsoleIO.Clear();
-        ConsoleIO.ShowMenu();
+        ConsoleIO.ShowMenu("");
 
 
         while (true)
