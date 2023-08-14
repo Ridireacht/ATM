@@ -1,3 +1,5 @@
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 
@@ -158,8 +160,6 @@ public class ConsoleIO
 
     public static void EnterClientAccount()
     {
-        Client localClient = new Client();
-
         ConsoleIO.Clear();
         ConsoleIO.ShowMenu("");
 
@@ -167,9 +167,9 @@ public class ConsoleIO
         while (true)
         {
             System.out.println("Введите номер своей карты в формате XXXXXXXXXXXXXXXX: ");
-            localClient.cardNumber = ConsoleIO.GetOption(1000000000000000L, 9999999999999999L, "Номер карты должен состоять из 16 цифр! Попробуйте снова.");
+            currentClient.cardNumber = ConsoleIO.GetOption(1000000000000000L, 9999999999999999L, "Номер карты должен состоять из 16 цифр! Попробуйте снова.");
 
-            if (ClientDatabase.GetClientByCard(localClient.cardNumber) != null)
+            if (ClientDatabase.GetClientByCard(currentClient.cardNumber) != null)
                 break;
 
             else
@@ -177,6 +177,22 @@ public class ConsoleIO
         }
 
 
+        currentClient = ClientDatabase.GetClientByCard(currentClient.cardNumber);
         System.out.println("Введите свой ПИН-код (длина - 4 символа): ");
+
+        if (ValidatePIN(currentClient.PIN))
+        {
+            ConsoleIO.ShowAccount("");
+        }
+
+        else
+        {
+            currentClient.availableSince = new Date();
+
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(currentClient.availableSince);
+            cal.add(Calendar.DATE, 1);
+            currentClient.availableSince = cal.getTime();
+        }
     }
 }
