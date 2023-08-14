@@ -28,4 +28,16 @@ public class ClientDatabase
     {
         clients = clientList;
     }
+
+
+    public static void UpdateClient(Client client)
+    {
+
+    }
+
+
+    public static void AddNewClient(Client client)
+    {
+
+    }
 }
