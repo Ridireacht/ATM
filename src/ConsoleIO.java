@@ -15,7 +15,7 @@ public class ConsoleIO
     }
 
 
-    public static void ShowMenu(String contentString)
+    public static void ShowMenu()
     {
         System.out.println("////////////////////////");
         System.out.println("/       БАНКОМАТ       /");
@@ -23,7 +23,7 @@ public class ConsoleIO
 
         System.out.println("\n Баланс банкомата: " + balance);
 
-        System.out.println("\n" + contentString);
+        System.out.println("\nВозможные опции: создать счёт (1), войти в счёт (2), выйти (3).");
     }
 
 
