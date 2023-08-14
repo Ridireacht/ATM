@@ -1,11 +1,11 @@
 import java.io.IOException;
 import java.util.Scanner;
 
+
 public class Main
 {
     public static void main(String[] args)
     {
-        // Подготовка к работе
         try
         {
             FileIO.ReadFromFile();
@@ -21,6 +21,7 @@ public class Main
             sc.next();
             System.exit(0);
         }
+
 
 
         boolean toContinue = true;
@@ -55,9 +56,10 @@ public class Main
         } while(toContinue);
 
 
+
         try
         {
-            FileIO.WriteToFile(1337, ClientDatabase.clients);
+            FileIO.WriteToFile(ConsoleIO.balance, ClientDatabase.clients);
         }
 
         catch(IOException e)
