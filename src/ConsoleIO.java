@@ -1,6 +1,7 @@
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 
 public class ConsoleIO
@@ -182,9 +183,16 @@ public class ConsoleIO
 
         if (currentClient.availableSince.after(new Date()))
         {
-            System.out.println("Данный аккаунт всё ещё заблокирован! Нажмите любую кнопку, чтобы выйти в главное меню...");
+            long diffInMillies = Math.abs(currentClient.availableSince.getTime() - new Date().getTime());
+            long diff = TimeUnit.MINUTES.convert(diffInMillies, TimeUnit.MILLISECONDS);
+
+            System.out.println("Данный аккаунт всё ещё заблокирован!");
+            System.out.println("Время до снятия блокировки: " + diff + " минут.");
+            System.out.println("Нажмите любую кнопку, чтобы выйти в главное меню...");
             Scanner sc = new Scanner(System.in);
             sc.next();
+
+            return;
         }
 
 
