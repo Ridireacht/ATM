@@ -92,10 +92,10 @@ public class Account {
 
     System.out.println("         CОЗДАНИЕ АККАУНТА\n");
 
-    System.out.println("Введите своё ФИО (кириллицей):");
+    System.out.println("\nВведите своё ФИО (кириллицей):");
     currentClient.FIO = ConsoleIO.inputFIO();
 
-    System.out.println("Введите ПИН-код (должен состоять из 4 цифр): ");
+    System.out.println("\nВведите ПИН-код (должен состоять из 4 цифр): ");
     currentClient.PIN = ConsoleIO.inputNumber(1000, 9999, "ПИН-код должен состоять из 4 цифр!");
 
     currentClient.cardNumber = Client.generateCardNumber();
@@ -104,7 +104,7 @@ public class Account {
     ClientDatabase.clients.add(currentClient);
     System.out.println("\nАккаунт создан! Номер вашей карты: " + currentClient.cardNumber);
 
-    System.out.println("Нажмите Enter, чтобы выйти на главный экран...");
+    System.out.println("\nНажмите Enter, чтобы выйти на главный экран...");
 
     ConsoleIO.pressEnterToExit();
   }
