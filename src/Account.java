@@ -113,7 +113,7 @@ public class Account {
   public static void enterClientAccount() {
     ConsoleIO.showHeader(balance);
 
-    System.out.println("          ВХОД В АККАУНТ\n");
+    System.out.println("           ВХОД В АККАУНТ\n");
 
     verifyCardNumber();
     currentClient = ClientDatabase.getClientByCard(currentClient.cardNumber);

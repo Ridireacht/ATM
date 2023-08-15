@@ -51,7 +51,7 @@ public class ConsoleIO {
   public static void showMainMenu(int balance) {
     showHeader(balance);
 
-    System.out.println("           ГЛАВНОЕ МЕНЮ\n");
+    System.out.println("            ГЛАВНОЕ МЕНЮ\n");
     System.out.println("Возможные опции:\n1. Создать счёт\n2. Войти в счёт\n3. Завершить работу\n");
     System.out.println("Введите номер интересующей опции:");
   }
@@ -60,7 +60,7 @@ public class ConsoleIO {
   public static void showAccount(int balance, Client client) {
     showHeader(balance);
 
-    System.out.println("           АККАУНТ\n");
+    System.out.println("              АККАУНТ\n");
     System.out.println("Здравствуйте, " + client.FIO + "!");
     System.out.println("\nБаланс на вашем счету: " + client.accountBalance);
     System.out.println("\nВыберите дальнейшее действие: внести средства (1), снять средства (2), выйти из аккаунта (3).");
