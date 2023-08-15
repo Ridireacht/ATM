@@ -12,12 +12,12 @@ public class Main
             ConsoleIO.balance = FileIO.GetBalance();
         }
 
-        catch(IOException e)
+        catch(IOException e1)
         {
             System.out.println("При чтении файла возникла непредвиденная ошибка! Нажмите Enter, чтобы выйти...");
 
             try { System.in.read(); }
-            catch (IOException e1) { System.out.println("Возникла непредвиденная ошибка!"); }
+            catch (IOException e2) { System.out.println("\nПри попытке считать нажатие Enter возникла непредвиденная ошибка!"); }
 
             System.exit(0);
         }
@@ -41,12 +41,12 @@ public class Main
 
             try { FileIO.WriteToFile(ConsoleIO.balance, ClientDatabase.clients); }
 
-            catch(IOException e)
+            catch(IOException e1)
             {
                 System.out.println("При записи файла возникла непредвиденная ошибка! Нажмите Enter, чтобы выйти...");
 
                 try { System.in.read(); }
-                catch (IOException e1) { System.out.println("Возникла непредвиденная ошибка!"); }
+                catch (IOException e2) { System.out.println("\nПри попытке считать нажатие Enter возникла непредвиденная ошибка!"); }
 
                 System.exit(0);
             }

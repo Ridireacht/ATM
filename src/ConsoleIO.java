@@ -184,7 +184,7 @@ public class ConsoleIO
         System.out.println("Счёт успешно пополнен! Для возврата к аккаунту нажмите Enter...");
 
         try { System.in.read(); }
-        catch (IOException e) { System.out.println("Возникла непредвиденная ошибка!"); }
+        catch (IOException e) { System.out.println("\nПри попытке считать нажатие Enter возникла непредвиденная ошибка!"); }
     }
 
 
@@ -211,7 +211,7 @@ public class ConsoleIO
         System.out.println("Деньги успешно выведены! Для возврата к аккаунту нажмите Enter...");
 
         try { System.in.read(); }
-        catch (IOException e) { System.out.println("Возникла непредвиденная ошибка!"); }
+        catch (IOException e) { System.out.println("\nПри попытке считать нажатие Enter возникла непредвиденная ошибка!"); }
     }
 
 
@@ -236,7 +236,7 @@ public class ConsoleIO
         System.out.println("\nАккаунт создан! Номер вашей карты: " + currentClient.cardNumber + "\nНажмите Enter, чтобы выйти на главный экран...");
 
         try { System.in.read(); }
-        catch (IOException e) { System.out.println("Возникла непредвиденная ошибка!"); }
+        catch (IOException e) { System.out.println("\nПри попытке считать нажатие Enter возникла непредвиденная ошибка!"); }
     }
 
 
@@ -273,7 +273,7 @@ public class ConsoleIO
             System.out.println("Нажмите Enter, чтобы выйти в главное меню...");
 
             try { System.in.read(); }
-            catch (IOException e) { System.out.println("Возникла непредвиденная ошибка!"); }
+            catch (IOException e) { System.out.println("\nПри попытке считать нажатие Enter возникла непредвиденная ошибка!"); }
 
             return;
         }
@@ -323,7 +323,7 @@ public class ConsoleIO
             System.out.println("Нажмите Enter, чтобы выйти в главное меню...");
 
             try { System.in.read(); }
-            catch (IOException e) { System.out.println("Возникла непредвиденная ошибка!"); }
+            catch (IOException e) { System.out.println("\nПри попытке считать нажатие Enter возникла непредвиденная ошибка!"); }
         }
     }
 
