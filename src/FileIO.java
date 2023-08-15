@@ -54,7 +54,7 @@ public class FileIO {
       clientList.get(clientList.size() - 1).accountBalance = Integer.parseInt(sc.nextLine());
       clientList.get(clientList.size() - 1).FIO = sc.nextLine();
       clientList.get(clientList.size() - 1).PIN = Integer.parseInt(sc.nextLine());
-      clientList.get(clientList.size() - 1).cardNumber = Long.parseLong(sc.nextLine());
+      clientList.get(clientList.size() - 1).cardNumber = sc.nextLine();
       clientList.get(clientList.size() - 1).availableSince = new Date(
           Long.parseLong(sc.nextLine()));
     }
