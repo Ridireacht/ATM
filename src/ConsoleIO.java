@@ -277,4 +277,10 @@ public class ConsoleIO
             sc.next();
         }
     }
+
+
+    public static void CloseScanner()
+    {
+        sc.close();
+    }
 }
