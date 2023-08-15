@@ -146,7 +146,7 @@ public class ConsoleIO
     }
 
 
-    private static boolean isValidatedPIN()
+    private static boolean isCorrectPIN()
     {
         int localPIN;
 
@@ -262,7 +262,7 @@ public class ConsoleIO
 
         System.out.println("Введите свой ПИН-код (длина - 4 символа): ");
 
-        if (isValidatedPIN())
+        if (isCorrectPIN())
         {
             boolean toContinue = true;
 
