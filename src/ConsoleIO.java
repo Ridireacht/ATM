@@ -67,7 +67,7 @@ public class ConsoleIO
 
 
     // Для ввода номера карты
-    public static long GetOption(long lower_boundary, long upper_boundary)
+    private static long GetOption(long lower_boundary, long upper_boundary)
     {
         long res;
 
@@ -125,7 +125,7 @@ public class ConsoleIO
 
 
     // Для ввода ФИО
-    public static String GetOption()
+    private static String GetOption()
     {
         String input;
 
