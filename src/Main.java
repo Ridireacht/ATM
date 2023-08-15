@@ -30,7 +30,7 @@ public class Main
             ConsoleIO.showMainMenu(Account.balance);
 
 
-            switch (ConsoleIO.getNumber(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова."))
+            switch (ConsoleIO.inputNumber(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова."))
             {
                 case (1) -> Account.createClientAccount();
                 case (2) -> Account.enterClientAccount();

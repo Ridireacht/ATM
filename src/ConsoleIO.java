@@ -67,7 +67,7 @@ public class ConsoleIO {
   }
 
 
-  public static long getCardNumber(long lower_boundary, long upper_boundary) {
+  public static long inputCardNumber(long lower_boundary, long upper_boundary) {
     long input;
 
     while (true) {
@@ -93,10 +93,11 @@ public class ConsoleIO {
   }
 
 
-  public static int getNumber(int lower_boundary, int upper_boundary, String errorMessage) {
+  public static int inputNumber(int lower_boundary, int upper_boundary, String errorMessage) {
     int input;
 
     while (true) {
+
       while (!sc.hasNextInt()) {
         System.out.println("\nНекорректное значение! Попробуйте снова.");
         sc.next();
@@ -119,7 +120,7 @@ public class ConsoleIO {
   }
 
 
-  public static String getFIO() {
+  public static String inputFIO() {
     String input;
 
     while (true) {
