@@ -1,3 +1,4 @@
+import java.nio.file.*;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -9,7 +10,7 @@ import java.util.Scanner;
 public class FileIO
 {
     private static int balance;
-    private static ArrayList<Client> clientList;
+    private static ArrayList<Client> clientList = new ArrayList<Client>();
 
 
     public static void WriteToFile(int balance, ArrayList<Client> clientList) throws IOException
@@ -37,6 +38,11 @@ public class FileIO
 
     public static void ReadFromFile() throws IOException
     {
+        Path path = Paths.get("database.txt");
+        if (Files.notExists(path))
+            return;
+
+
         FileReader fr = new FileReader("database.txt");
         Scanner sc = new Scanner(fr);
 
