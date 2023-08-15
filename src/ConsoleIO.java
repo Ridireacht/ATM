@@ -67,27 +67,22 @@ public class ConsoleIO {
   }
 
 
-  public static long inputCardNumber(long lower_boundary, long upper_boundary) {
-    long input;
+  public static String inputCardNumber() {
+    String input;
+
 
     while (true) {
-      while (!sc.hasNextLong()) {
-        System.out.println("\nНекорректное значение! Попробуйте снова.");
-        sc.next();
-      }
 
-      input = sc.nextLong();
+      input = sc.nextLine();
 
-      if (input >= lower_boundary && input <= upper_boundary) {
+      if (input.matches("/[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]/")) {
         break;
       }
 
       else {
-        System.out.println("\nНомер карты должен состоять из 16 цифр! Попробуйте снова.");
+        System.out.println("\nВведённая строка не соответствует установленному формату! Попробуйте снова.");
       }
     }
-
-    sc.nextLine();  // чтобы убрать \n, которое осталось после nextLong()
 
     return input;
   }
