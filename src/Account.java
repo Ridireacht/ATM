@@ -3,7 +3,7 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 
-public class AccountActions {
+public class Account {
 
   public static int balance;
   private static Client currentClient = new Client();
@@ -146,13 +146,13 @@ public class AccountActions {
         {
           case (1) ->
           {
-            AccountActions.addMoney();
+            Account.addMoney();
             ClientDatabase.updateClient(currentClient);
           }
 
           case (2) ->
           {
-            AccountActions.withdrawMoney();
+            Account.withdrawMoney();
             ClientDatabase.updateClient(currentClient);
           }
 
