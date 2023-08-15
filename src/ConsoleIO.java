@@ -70,7 +70,7 @@ public class ConsoleIO
     // Для ввода номера карты
     private static long getOption(long lower_boundary, long upper_boundary)
     {
-        long res;
+        long input;
 
 
         while(true)
@@ -82,9 +82,9 @@ public class ConsoleIO
             }
 
 
-            res = sc.nextLong();
+            input = sc.nextLong();
 
-            if (res >= lower_boundary && res <= upper_boundary)
+            if (input >= lower_boundary && input <= upper_boundary)
                 break;
 
             else
@@ -94,14 +94,14 @@ public class ConsoleIO
 
         sc.nextLine();  // чтобы убрать \n, которое осталось после nextLong()
 
-        return res;
+        return input;
     }
 
 
     // Для ввода обычных чисел (опций, сумм, ПИН-кода)
     public static int getOption(int lower_boundary, int upper_boundary, String errorMessage)
     {
-        int res;
+        int input;
 
 
         while(true)
@@ -113,9 +113,9 @@ public class ConsoleIO
             }
 
 
-            res = sc.nextInt();
+            input = sc.nextInt();
 
-            if (res >= lower_boundary && res <= upper_boundary)
+            if (input >= lower_boundary && input <= upper_boundary)
                 break;
 
             else
@@ -125,7 +125,7 @@ public class ConsoleIO
 
         sc.nextLine();  // чтобы убрать \n, которое осталось после nextInt()
 
-        return res;
+        return input;
     }
 
 
