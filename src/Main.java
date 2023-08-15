@@ -68,5 +68,8 @@ public class Main
             }
 
         } while(toContinue);
+
+
+        ConsoleIO.CloseScanner();
     }
 }
