@@ -13,8 +13,21 @@ public class ConsoleIO
 
     public static void Clear()
     {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+        try
+        {
+            String os = System.getProperty("os.name");
+
+            if (os.contains("Windows"))
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+
+            else
+                Runtime.getRuntime().exec("clear");
+        }
+
+        catch (Exception e)
+        {
+            System.out.println("При попытке очистить экран возникла непредвиденная ошибка!\n");
+        }
     }
 
 
