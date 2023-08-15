@@ -6,8 +6,8 @@ public class ClientDatabase {
   public static ArrayList<Client> clients = new ArrayList<>();
 
 
-  public static Client getClientByCard(long number) {
-    return clients.stream().filter(o -> o.cardNumber == number).findFirst().orElse(null);
+  public static Client getClientByCard(String cardNumber) {
+    return clients.stream().filter(o -> o.cardNumber == cardNumber).findFirst().orElse(null);
   }
 
 
