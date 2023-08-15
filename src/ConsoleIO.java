@@ -280,8 +280,18 @@ public class ConsoleIO
 
                 switch (ConsoleIO.GetOption(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова."))
                 {
-                    case (1) -> ConsoleIO.AddMoney();
-                    case (2) -> ConsoleIO.WithdrawMoney();
+                    case (1) ->
+                    {
+                        ConsoleIO.AddMoney();
+                        ClientDatabase.UpdateClient(currentClient);
+                    }
+
+                    case (2) ->
+                    {
+                        ConsoleIO.WithdrawMoney();
+                        ClientDatabase.UpdateClient(currentClient);
+                    }
+
                     case (3) -> toContinue = false;
                 }
 
