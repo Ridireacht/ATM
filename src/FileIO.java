@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class FileIO {
 
-  private static int balance = 0;
+  private static int balance = 100000;
   private static ArrayList<Client> clientList = new ArrayList<>();
 
 
