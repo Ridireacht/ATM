@@ -40,6 +40,7 @@ public class ConsoleIO
         System.out.println("////////////////////////");
 
         System.out.println("\n Баланс банкомата: " + balance);
+        System.out.println("________________________");
 
         System.out.println("\n" + additionalContent);
     }
