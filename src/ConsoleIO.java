@@ -70,7 +70,6 @@ public class ConsoleIO {
   public static String inputCardNumber() {
     String input;
 
-
     while (true) {
 
       input = sc.nextLine();
