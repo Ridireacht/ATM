@@ -80,7 +80,7 @@ public class Account {
     currentClient.FIO = ConsoleIO.inputFIO();
 
     System.out.println("Введите ПИН-код (должен состоять из 4 цифр): ");
-    currentClient.PIN = ConsoleIO.inputNumber(999, 10000, "ПИН-код должен состоять из 4 цифр!");
+    currentClient.PIN = ConsoleIO.inputNumber(1000, 9999, "ПИН-код должен состоять из 4 цифр!");
 
     currentClient.cardNumber = Client.generateCardNumber();
     currentClient.accountBalance = 0;
