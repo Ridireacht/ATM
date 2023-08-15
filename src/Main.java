@@ -52,22 +52,21 @@ public class Main
                 }
             }
 
+
+            try
+            {
+                FileIO.WriteToFile(ConsoleIO.balance, ClientDatabase.clients);
+            }
+
+            catch(IOException e)
+            {
+                Scanner sc = new Scanner(System.in);
+
+                System.out.println("При записи файла возникла непредвиденная ошибка! Нажмите любую кнопку, чтобы выйти...");
+                sc.next();
+                System.exit(0);
+            }
+
         } while(toContinue);
-
-
-
-        try
-        {
-            FileIO.WriteToFile(ConsoleIO.balance, ClientDatabase.clients);
-        }
-
-        catch(IOException e)
-        {
-            Scanner sc = new Scanner(System.in);
-
-            System.out.println("При записи файла возникла непредвиденная ошибка! Нажмите любую кнопку, чтобы выйти...");
-            sc.next();
-            System.exit(0);
-        }
     }
 }
