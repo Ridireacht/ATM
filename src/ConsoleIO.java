@@ -174,6 +174,8 @@ public class ConsoleIO
 
     private static void AddMoney()
     {
+        System.out.println("\nВведите, сколько вы хотите добавить:");
+
         int sum = ConsoleIO.GetOption(1, 999999, "Сумма пополнения должна быть в пределах 1-999999!");
 
         balance += sum;
@@ -188,6 +190,8 @@ public class ConsoleIO
 
     private static void WithdrawMoney()
     {
+        System.out.println("\nВведите, сколько вы хотите cнять:");
+
         int sum;
 
         while (true)
