@@ -31,7 +31,7 @@ public class Main
             ConsoleIO.ShowMainMenu();
 
 
-            switch(ConsoleIO.GetOption(0, 4, "Выбор должен быть от 1 до 3! Попробуйте снова."))
+            switch(ConsoleIO.GetOption(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова."))
             {
                 case(1):
                 {

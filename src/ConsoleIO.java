@@ -81,7 +81,7 @@ public class ConsoleIO
 
             res = sc.nextInt();
 
-            if (res > lower_boundary && res < upper_boundary)
+            if (res >= lower_boundary && res <= upper_boundary)
                 break;
 
             else
@@ -123,7 +123,7 @@ public class ConsoleIO
 
         for (int i = 1; i < 4; i++)
         {
-            localPIN = ConsoleIO.GetOption(999, 10000, "ПИН-код должен состоять из 4 цифр!");
+            localPIN = ConsoleIO.GetOption(1000, 9999, "ПИН-код должен состоять из 4 цифр!");
 
             if (localPIN == currentClient.PIN)
                 return true;
@@ -140,7 +140,7 @@ public class ConsoleIO
 
     private static void AddMoney()
     {
-        int sum = ConsoleIO.GetOption(0, 1000000, "Сумма пополнения должна быть больше 0 и меньше 1000000!");
+        int sum = ConsoleIO.GetOption(1, 999999, "Сумма пополнения должна быть в пределах 1-999999!");
 
         balance += sum;
         currentClient.accountBalance += sum;
@@ -156,7 +156,7 @@ public class ConsoleIO
 
         while (true)
         {
-            sum = ConsoleIO.GetOption(0, currentClient.accountBalance + 1,  "Сумма снятия должна быть больше 0 и меньше" + currentClient.accountBalance + "!");
+            sum = ConsoleIO.GetOption(1, currentClient.accountBalance,  "Сумма снятия должна быть в пределах 1-" + currentClient.accountBalance + "!");
 
             if (sum > balance)
                 System.out.println("Снятие невозможно: в банкомате есть всего лишь " + balance + "! Выберите другую сумму.");
@@ -189,7 +189,7 @@ public class ConsoleIO
 
 
         ClientDatabase.clients.add(currentClient);
-        System.out.println("\nАккаунт создан! Нажмите любую кнопку, чтобы выйти на главный экран...");
+        System.out.println("\nАккаунт создан! Номер вашей карты: " + currentClient.cardNumber + "\nНажмите любую кнопку, чтобы выйти на главный экран...");
 
         sc.next();
     }
@@ -241,7 +241,7 @@ public class ConsoleIO
             {
                 ConsoleIO.ShowAccount();
 
-                switch(ConsoleIO.GetOption(0, 4, "Выбор должен быть от 1 до 3! Попробуйте снова."))
+                switch(ConsoleIO.GetOption(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова."))
                 {
                     case(1):
                     {
