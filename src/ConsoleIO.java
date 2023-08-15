@@ -31,7 +31,7 @@ public class ConsoleIO
     }
 
 
-    public static void ShowMenu(String additionalContent)
+    public static void ShowHeader()
     {
         ConsoleIO.Clear();
 
@@ -40,26 +40,23 @@ public class ConsoleIO
         System.out.println("////////////////////////");
 
         System.out.println("\n Баланс банкомата: " + balance);
-        System.out.println("________________________");
+        System.out.println("________________________\n");
+    }
 
-        System.out.println("\n" + additionalContent);
+
+    public static void ShowMainMenu()
+    {
+        ShowHeader();
+        System.out.println("Возможные опции: создать счёт (1), войти в счёт (2), выйти (3).");
     }
 
 
     public static void ShowAccount()
     {
-        ConsoleIO.Clear();
+        ShowHeader();
 
-        System.out.println("////////////////////////");
-        System.out.println("/       БАНКОМАТ       /");
-        System.out.println("////////////////////////");
-
-        System.out.println("\n Баланс банкомата: " + balance);
-
-        System.out.println("\nЗдравствуйте, " + currentClient.FIO + "!");
-
+        System.out.println("Здравствуйте, " + currentClient.FIO + "!");
         System.out.println("\nБаланс на вашем счету: " + currentClient.accountBalance);
-
         System.out.println("\nВыберите дальнейшее действие: внести средства (1), снять средства (2), выйти из аккаунта (3).");
     }
 
@@ -180,8 +177,7 @@ public class ConsoleIO
 
     public static void CreateClientAccount()
     {
-        ConsoleIO.Clear();
-        ConsoleIO.ShowMenu("");
+        ShowHeader();
 
 
         System.out.println("Введите своё ФИО (кириллицей): ");
@@ -204,8 +200,7 @@ public class ConsoleIO
 
     public static void EnterClientAccount()
     {
-        ConsoleIO.Clear();
-        ConsoleIO.ShowMenu("");
+        ShowHeader();
 
 
         while (true)
