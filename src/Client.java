@@ -10,7 +10,7 @@ public class Client
     public Date availableSince = new Date();
 
 
-    public static long GenerateCardNumber()
+    public static long generateCardNumber()
     {
         long number;
 
@@ -18,7 +18,7 @@ public class Client
         {
             number = 1000000000000000L + (long) (Math.random() * (9999999999999999L - 1000000000000000L));
         }
-        while(ClientDatabase.GetClientByCard(number) != null);
+        while(ClientDatabase.getClientByCard(number) != null);
 
         return number;
     }

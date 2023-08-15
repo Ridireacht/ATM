@@ -13,7 +13,7 @@ public class FileIO
     private static ArrayList<Client> clientList = new ArrayList<>();
 
 
-    public static void WriteToFile(int balance, ArrayList<Client> clientList) throws IOException
+    public static void writeToFile(int balance, ArrayList<Client> clientList) throws IOException
     {
         FileWriter fw = new FileWriter("database.txt");
 
@@ -34,7 +34,7 @@ public class FileIO
     }
 
 
-    public static void ReadFromFile() throws IOException
+    public static void readFromFile() throws IOException
     {
         Path path = Paths.get("database.txt");
         if (Files.notExists(path))
@@ -69,13 +69,13 @@ public class FileIO
     }
 
 
-    public static int GetBalance()
+    public static int getBalance()
     {
         return balance;
     }
 
 
-    public static ArrayList<Client> GetClientList()
+    public static ArrayList<Client> getClientList()
     {
         return clientList;
     }

@@ -13,7 +13,7 @@ public class ConsoleIO
 
 
 
-    private static void Clear()
+    private static void clear()
     {
         try
         {
@@ -33,9 +33,9 @@ public class ConsoleIO
     }
 
 
-    private static void ShowHeader()
+    private static void showHeader()
     {
-        ConsoleIO.Clear();
+        ConsoleIO.clear();
 
         System.out.println("////////////////////////////////////");
         System.out.println("/             БАНКОМАТ             /");
@@ -46,9 +46,9 @@ public class ConsoleIO
     }
 
 
-    public static void ShowMainMenu()
+    public static void showMainMenu()
     {
-        ShowHeader();
+        showHeader();
 
         System.out.println("           ГЛАВНОЕ МЕНЮ\n");
         System.out.println("Возможные опции:\n1. Создать счёт\n2. Войти в счёт\n3. Завершить работу\n");
@@ -56,9 +56,9 @@ public class ConsoleIO
     }
 
 
-    private static void ShowAccount()
+    private static void showAccount()
     {
-        ShowHeader();
+        showHeader();
 
         System.out.println("           АККАУНТ\n");
         System.out.println("Здравствуйте, " + currentClient.FIO + "!");
@@ -68,7 +68,7 @@ public class ConsoleIO
 
 
     // Для ввода номера карты
-    private static long GetOption(long lower_boundary, long upper_boundary)
+    private static long getOption(long lower_boundary, long upper_boundary)
     {
         long res;
 
@@ -99,7 +99,7 @@ public class ConsoleIO
 
 
     // Для ввода обычных чисел (опций, сумм, ПИН-кода)
-    public static int GetOption(int lower_boundary, int upper_boundary, String errorMessage)
+    public static int getOption(int lower_boundary, int upper_boundary, String errorMessage)
     {
         int res;
 
@@ -130,7 +130,7 @@ public class ConsoleIO
 
 
     // Для ввода ФИО
-    private static String GetOption()
+    private static String getOption()
     {
         String input;
 
@@ -158,7 +158,7 @@ public class ConsoleIO
 
         for (int i = 1; i < 4; i++)
         {
-            localPIN = ConsoleIO.GetOption(1000, 9999, "ПИН-код должен состоять из 4 цифр!");
+            localPIN = ConsoleIO.getOption(1000, 9999, "ПИН-код должен состоять из 4 цифр!");
 
             if (localPIN == currentClient.PIN)
                 return true;
@@ -172,11 +172,11 @@ public class ConsoleIO
     }
 
 
-    private static void AddMoney()
+    private static void addMoney()
     {
         System.out.println("\nВведите, сколько вы хотите добавить:");
 
-        int sum = ConsoleIO.GetOption(1, 999999, "Сумма пополнения должна быть в пределах 1-999999!");
+        int sum = ConsoleIO.getOption(1, 999999, "Сумма пополнения должна быть в пределах 1-999999!");
 
         balance += sum;
         currentClient.accountBalance += sum;
@@ -188,7 +188,7 @@ public class ConsoleIO
     }
 
 
-    private static void WithdrawMoney()
+    private static void withdrawMoney()
     {
         System.out.println("\nВведите, сколько вы хотите cнять:");
 
@@ -196,7 +196,7 @@ public class ConsoleIO
 
         while (true)
         {
-            sum = ConsoleIO.GetOption(1, currentClient.accountBalance,  "Сумма снятия должна быть в пределах 1-" + currentClient.accountBalance + "!");
+            sum = ConsoleIO.getOption(1, currentClient.accountBalance,  "Сумма снятия должна быть в пределах 1-" + currentClient.accountBalance + "!");
 
             if (sum > balance)
                 System.out.println("Снятие невозможно: в банкомате есть всего лишь " + balance + "! Выберите другую сумму.");
@@ -215,20 +215,20 @@ public class ConsoleIO
     }
 
 
-    public static void CreateClientAccount()
+    public static void createClientAccount()
     {
-        ShowHeader();
+        showHeader();
 
         System.out.println("         CОЗДАНИЕ АККАУНТА\n");
 
 
         System.out.println("Введите своё ФИО (кириллицей):");
-        currentClient.FIO = ConsoleIO.GetOption();
+        currentClient.FIO = ConsoleIO.getOption();
 
         System.out.println("Введите ПИН-код (должен состоять из 4 цифр): ");
-        currentClient.PIN = ConsoleIO.GetOption(999, 10000, "ПИН-код должен состоять из 4 цифр!");
+        currentClient.PIN = ConsoleIO.getOption(999, 10000, "ПИН-код должен состоять из 4 цифр!");
 
-        currentClient.cardNumber = Client.GenerateCardNumber();
+        currentClient.cardNumber = Client.generateCardNumber();
         currentClient.accountBalance = 0;
 
 
@@ -240,9 +240,9 @@ public class ConsoleIO
     }
 
 
-    public static void EnterClientAccount()
+    public static void enterClientAccount()
     {
-        ShowHeader();
+        showHeader();
 
         System.out.println("          ВХОД В АККАУНТ\n");
 
@@ -250,9 +250,9 @@ public class ConsoleIO
         while (true)
         {
             System.out.println("Введите номер своей карты в формате XXXXXXXXXXXXXXXX: ");
-            currentClient.cardNumber = ConsoleIO.GetOption(1000000000000000L, 9999999999999999L);
+            currentClient.cardNumber = ConsoleIO.getOption(1000000000000000L, 9999999999999999L);
 
-            if (ClientDatabase.GetClientByCard(currentClient.cardNumber) != null)
+            if (ClientDatabase.getClientByCard(currentClient.cardNumber) != null)
                 break;
 
             else
@@ -261,7 +261,7 @@ public class ConsoleIO
 
 
 
-        currentClient = ClientDatabase.GetClientByCard(currentClient.cardNumber);
+        currentClient = ClientDatabase.getClientByCard(currentClient.cardNumber);
 
         if (currentClient.availableSince.after(new Date()))
         {
@@ -288,20 +288,20 @@ public class ConsoleIO
 
             do
             {
-                ConsoleIO.ShowAccount();
+                ConsoleIO.showAccount();
 
-                switch (ConsoleIO.GetOption(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова."))
+                switch (ConsoleIO.getOption(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова."))
                 {
                     case (1) ->
                     {
-                        ConsoleIO.AddMoney();
-                        ClientDatabase.UpdateClient(currentClient);
+                        ConsoleIO.addMoney();
+                        ClientDatabase.updateClient(currentClient);
                     }
 
                     case (2) ->
                     {
-                        ConsoleIO.WithdrawMoney();
-                        ClientDatabase.UpdateClient(currentClient);
+                        ConsoleIO.withdrawMoney();
+                        ClientDatabase.updateClient(currentClient);
                     }
 
                     case (3) -> toContinue = false;
@@ -328,7 +328,7 @@ public class ConsoleIO
     }
 
 
-    public static void CloseScanner()
+    public static void closeScanner()
     {
         sc.close();
     }

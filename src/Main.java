@@ -7,9 +7,9 @@ public class Main
     {
         try
         {
-            FileIO.ReadFromFile();
-            ClientDatabase.clients = FileIO.GetClientList();
-            ConsoleIO.balance = FileIO.GetBalance();
+            FileIO.readFromFile();
+            ClientDatabase.clients = FileIO.getClientList();
+            ConsoleIO.balance = FileIO.getBalance();
         }
 
         catch(IOException e1)
@@ -28,18 +28,18 @@ public class Main
 
         do
         {
-            ConsoleIO.ShowMainMenu();
+            ConsoleIO.showMainMenu();
 
 
-            switch (ConsoleIO.GetOption(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова."))
+            switch (ConsoleIO.getOption(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова."))
             {
-                case (1) -> ConsoleIO.CreateClientAccount();
-                case (2) -> ConsoleIO.EnterClientAccount();
+                case (1) -> ConsoleIO.createClientAccount();
+                case (2) -> ConsoleIO.enterClientAccount();
                 case (3) -> toContinue = false;
             }
 
 
-            try { FileIO.WriteToFile(ConsoleIO.balance, ClientDatabase.clients); }
+            try { FileIO.writeToFile(ConsoleIO.balance, ClientDatabase.clients); }
 
             catch(IOException e1)
             {
@@ -54,6 +54,6 @@ public class Main
         } while(toContinue);
 
 
-        ConsoleIO.CloseScanner();
+        ConsoleIO.closeScanner();
     }
 }
