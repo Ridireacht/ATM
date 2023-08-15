@@ -94,7 +94,7 @@ public class ConsoleIO
     }
 
 
-    // Для ввода опций
+    // Для ввода обычных чисел (опций, сумм, ПИН-кода)
     public static int GetOption(int lower_boundary, int upper_boundary, String errorMessage)
     {
         int res;
