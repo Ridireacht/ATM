@@ -15,7 +15,7 @@ public class Account {
 
     for (int i = 1; i < 4; i++)
     {
-      localPIN = ConsoleIO.getOption(1000, 9999, "ПИН-код должен состоять из 4 цифр!");
+      localPIN = ConsoleIO.getNumber(1000, 9999, "ПИН-код должен состоять из 4 цифр!");
 
       if (localPIN == currentClient.PIN)
         return true;
@@ -32,7 +32,7 @@ public class Account {
   {
     System.out.println("\nВведите, сколько вы хотите добавить:");
 
-    int sum = ConsoleIO.getOption(1, 1000000, "Сумма пополнения должна быть в пределах 1-1000000!");
+    int sum = ConsoleIO.getNumber(1, 1000000, "Сумма пополнения должна быть в пределах 1-1000000!");
 
     balance += sum;
     currentClient.accountBalance += sum;
@@ -51,7 +51,7 @@ public class Account {
 
     while (true)
     {
-      sum = ConsoleIO.getOption(1, currentClient.accountBalance,  "Сумма снятия должна быть в пределах 1-" + currentClient.accountBalance + "!");
+      sum = ConsoleIO.getNumber(1, currentClient.accountBalance,  "Сумма снятия должна быть в пределах 1-" + currentClient.accountBalance + "!");
 
       if (sum > balance)
         System.out.println("Снятие невозможно: в банкомате есть всего лишь " + balance + "! Выберите другую сумму.");
@@ -77,10 +77,10 @@ public class Account {
 
 
     System.out.println("Введите своё ФИО (кириллицей):");
-    currentClient.FIO = ConsoleIO.getOption();
+    currentClient.FIO = ConsoleIO.getFIO();
 
     System.out.println("Введите ПИН-код (должен состоять из 4 цифр): ");
-    currentClient.PIN = ConsoleIO.getOption(999, 10000, "ПИН-код должен состоять из 4 цифр!");
+    currentClient.PIN = ConsoleIO.getNumber(999, 10000, "ПИН-код должен состоять из 4 цифр!");
 
     currentClient.cardNumber = Client.generateCardNumber();
     currentClient.accountBalance = 0;
@@ -103,7 +103,7 @@ public class Account {
     while (true)
     {
       System.out.println("Введите номер своей карты в формате XXXXXXXXXXXXXXXX: ");
-      currentClient.cardNumber = ConsoleIO.getOption(1000000000000000L, 9999999999999999L);
+      currentClient.cardNumber = ConsoleIO.getCardNumber(1000000000000000L, 9999999999999999L);
 
       if (ClientDatabase.getClientByCard(currentClient.cardNumber) != null)
         break;
@@ -142,7 +142,7 @@ public class Account {
       {
         ConsoleIO.showAccount(balance, currentClient);
 
-        switch (ConsoleIO.getOption(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова."))
+        switch (ConsoleIO.getNumber(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова."))
         {
           case (1) ->
           {

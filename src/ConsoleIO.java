@@ -67,8 +67,7 @@ public class ConsoleIO {
   }
 
 
-  // Для ввода номера карты
-  public static long getOption(long lower_boundary, long upper_boundary) {
+  public static long getCardNumber(long lower_boundary, long upper_boundary) {
     long input;
 
     while (true) {
@@ -94,8 +93,7 @@ public class ConsoleIO {
   }
 
 
-  // Для ввода обычных чисел (опций, сумм, ПИН-кода)
-  public static int getOption(int lower_boundary, int upper_boundary, String errorMessage) {
+  public static int getNumber(int lower_boundary, int upper_boundary, String errorMessage) {
     int input;
 
     while (true) {
@@ -121,8 +119,7 @@ public class ConsoleIO {
   }
 
 
-  // Для ввода ФИО
-  public static String getOption() {
+  public static String getFIO() {
     String input;
 
     while (true) {
