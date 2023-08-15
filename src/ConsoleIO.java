@@ -92,6 +92,8 @@ public class ConsoleIO
         }
 
 
+        sc.nextLine();  // чтобы убрать \n, которое осталось после nextInt()
+
         return res;
     }
 
@@ -120,6 +122,8 @@ public class ConsoleIO
                 System.out.println("\n" + errorMessage);
         }
 
+
+        sc.nextLine();  // чтобы убрать \n, которое осталось после nextInt()
 
         return res;
     }
