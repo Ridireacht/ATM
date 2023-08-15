@@ -39,7 +39,7 @@ public class Account {
       }
 
       else {
-        System.out.println("Номер карты не найден! Попробуйте снова.");
+        System.out.println("\nНомер карты не найден! Попробуйте снова.");
       }
     }
   }
