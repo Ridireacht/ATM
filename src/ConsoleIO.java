@@ -176,7 +176,7 @@ public class ConsoleIO
     {
         System.out.println("\nВведите, сколько вы хотите добавить:");
 
-        int sum = ConsoleIO.getOption(1, 999999, "Сумма пополнения должна быть в пределах 1-999999!");
+        int sum = ConsoleIO.getOption(1, 1000000, "Сумма пополнения должна быть в пределах 1-1000000!");
 
         balance += sum;
         currentClient.accountBalance += sum;
