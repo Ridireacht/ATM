@@ -40,14 +40,16 @@ public class ConsoleIO
         System.out.println("////////////////////////////////////");
 
         System.out.println("\n Баланс банкомата: " + balance);
-        System.out.println("____________________________________\n");
+        System.out.println("____________________________________\n\n\n");
     }
 
 
     public static void ShowMainMenu()
     {
         ShowHeader();
-        System.out.println("Возможные опции: создать счёт (1), войти в счёт (2), выйти (3).");
+        System.out.println("           ГЛАВНОЕ МЕНЮ\n");
+        System.out.println("Возможные опции:\n1. Создать счёт\n2. Войти в счёт\n3. Завершить работу\n");
+        System.out.println("Введите номер интересующей опции:");
     }
 
 
