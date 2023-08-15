@@ -7,7 +7,7 @@ public class ClientDatabase {
 
 
   public static Client getClientByCard(String cardNumber) {
-    return clients.stream().filter(o -> o.cardNumber == cardNumber).findFirst().orElse(null);
+    return clients.stream().filter(o -> o.cardNumber.equals(cardNumber)).findFirst().orElse(null);
   }
 
 
