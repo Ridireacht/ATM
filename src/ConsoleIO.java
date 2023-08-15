@@ -45,20 +45,6 @@ public class ConsoleIO
     }
 
 
-    public static void ShowError(String errorString)
-    {
-        ConsoleIO.Clear();
-
-        System.out.println("////////////////////////");
-        System.out.println("/       БАНКОМАТ       /");
-        System.out.println("////////////////////////");
-
-        System.out.println("\n ОШИБКА!");
-
-        System.out.println("\n" + errorString);
-    }
-
-
     public static void ShowAccount()
     {
         ConsoleIO.Clear();
