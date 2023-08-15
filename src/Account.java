@@ -92,7 +92,7 @@ public class Account {
 
     System.out.println("         CОЗДАНИЕ АККАУНТА\n");
 
-    System.out.println("\nВведите своё ФИО (кириллицей):");
+    System.out.println("\nВведите своё ФИО (латиницей):");
     currentClient.FIO = ConsoleIO.inputFIO();
 
     System.out.println("\nВведите ПИН-код (должен состоять из 4 цифр): ");
