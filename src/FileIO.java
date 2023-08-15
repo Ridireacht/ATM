@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class FileIO
 {
-    private static int balance;
+    private static int balance = 0;
     private static ArrayList<Client> clientList = new ArrayList<Client>();
 
 
@@ -18,17 +18,15 @@ public class FileIO
         FileWriter fw = new FileWriter("database.txt");
 
 
-        fw.write(balance + "\n\n");
+        fw.write(Integer.toString(balance));
 
         for(var client : clientList)
         {
-            fw.write(client.accountBalance + "\n");
+            fw.write("\n\n" + client.accountBalance + "\n");
             fw.write(client.FIO + "\n");
             fw.write(client.PIN + "\n");
             fw.write(client.cardNumber + "\n");
             fw.write(client.availableSince + "\n");
-
-            fw.write("\n");
         }
 
 
@@ -48,10 +46,7 @@ public class FileIO
 
 
         if (sc.hasNextLine())
-        {
             balance = Integer.parseInt(sc.nextLine());
-            sc.next();
-        }
 
         else
             return;
@@ -59,6 +54,7 @@ public class FileIO
 
         while(sc.hasNextLine())
         {
+            sc.nextLine();
             clientList.add(new Client());
 
             clientList.get(clientList.size() - 1).accountBalance = Integer.parseInt(sc.nextLine());
@@ -66,8 +62,6 @@ public class FileIO
             clientList.get(clientList.size() - 1).PIN = Integer.parseInt(sc.nextLine());
             clientList.get(clientList.size() - 1).cardNumber = Long.parseLong(sc.nextLine());
             clientList.get(clientList.size() - 1).availableSince = new Date(Long.parseLong(sc.nextLine()));
-
-            sc.next();
         }
 
 
