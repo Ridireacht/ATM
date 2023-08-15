@@ -120,7 +120,7 @@ public class ConsoleIO {
     while (true) {
       input = sc.nextLine();
 
-      if (input.matches("[а-яА-Я ]+") && !input.equals(" ")) {
+      if (input.matches("[а-яА-Я ]+") && input.trim().length() > 0) {
         break;
       }
 
