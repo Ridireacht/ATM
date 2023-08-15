@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class FileIO
 {
     private static int balance = 0;
-    private static ArrayList<Client> clientList = new ArrayList<Client>();
+    private static ArrayList<Client> clientList = new ArrayList<>();
 
 
     public static void WriteToFile(int balance, ArrayList<Client> clientList) throws IOException

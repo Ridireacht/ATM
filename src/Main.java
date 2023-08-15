@@ -31,25 +31,11 @@ public class Main
             ConsoleIO.ShowMainMenu();
 
 
-            switch(ConsoleIO.GetOption(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова."))
+            switch (ConsoleIO.GetOption(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова."))
             {
-                case(1):
-                {
-                    ConsoleIO.CreateClientAccount();
-                    break;
-                }
-
-                case(2):
-                {
-                    ConsoleIO.EnterClientAccount();
-                    break;
-                }
-
-                case(3):
-                {
-                    toContinue = false;
-                    break;
-                }
+                case (1) -> ConsoleIO.CreateClientAccount();
+                case (2) -> ConsoleIO.EnterClientAccount();
+                case (3) -> toContinue = false;
             }
 
 

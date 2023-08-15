@@ -8,7 +8,7 @@ public class ConsoleIO
 {
     public static int balance;
     private static Client currentClient = new Client();
-    private static Scanner sc = new Scanner(System.in);
+    private static final Scanner sc = new Scanner(System.in);
 
 
 
@@ -138,7 +138,7 @@ public class ConsoleIO
                 break;
 
             else
-                System.out.println("\nНекорректное значение! Попробуйте снова.");;
+                System.out.println("\nНекорректное значение! Попробуйте снова.");
         }
 
 
@@ -270,25 +270,11 @@ public class ConsoleIO
             {
                 ConsoleIO.ShowAccount();
 
-                switch(ConsoleIO.GetOption(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова."))
+                switch (ConsoleIO.GetOption(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова."))
                 {
-                    case(1):
-                    {
-                        ConsoleIO.AddMoney();
-                        break;
-                    }
-
-                    case(2):
-                    {
-                        ConsoleIO.WithdrawMoney();
-                        break;
-                    }
-
-                    case(3):
-                    {
-                        toContinue = false;
-                        break;
-                    }
+                    case (1) -> ConsoleIO.AddMoney();
+                    case (2) -> ConsoleIO.WithdrawMoney();
+                    case (3) -> toContinue = false;
                 }
 
             } while(toContinue);
