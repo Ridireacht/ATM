@@ -59,6 +59,7 @@ public class ConsoleIO
     {
         ShowHeader();
 
+        System.out.println("           АККАУНТ\n");
         System.out.println("Здравствуйте, " + currentClient.FIO + "!");
         System.out.println("\nБаланс на вашем счету: " + currentClient.accountBalance);
         System.out.println("\nВыберите дальнейшее действие: внести средства (1), снять средства (2), выйти из аккаунта (3).");
@@ -162,7 +163,6 @@ public class ConsoleIO
         }
 
 
-        System.out.println("\nПИН-код был неверно введён 3 раза, аккаунт заблокирован на день.");
         return false;
     }
 
@@ -303,6 +303,7 @@ public class ConsoleIO
             cal.add(Calendar.DATE, 1);
             currentClient.availableSince = cal.getTime();
 
+            System.out.println("\nПИН-код был неверно введён 3 раза, аккаунт заблокирован на день.");
             System.out.println("Нажмите любую кнопку, чтобы выйти в главное меню...");
             sc.next();
         }
