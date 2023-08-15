@@ -26,7 +26,7 @@ public class FileIO
             fw.write(client.FIO + "\n");
             fw.write(client.PIN + "\n");
             fw.write(client.cardNumber + "\n");
-            fw.write(client.availableSince + "\n");
+            fw.write(Long.toString(client.availableSince.getTime()));
         }
 
 
