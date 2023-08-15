@@ -92,7 +92,7 @@ public class ConsoleIO
         }
 
 
-        sc.nextLine();  // чтобы убрать \n, которое осталось после nextInt()
+        sc.nextLine();  // чтобы убрать \n, которое осталось после nextLong()
 
         return res;
     }
@@ -215,6 +215,7 @@ public class ConsoleIO
     {
         ShowHeader();
 
+        System.out.println("         CОЗДАНИЕ АККАУНТА\n");
 
         System.out.println("Введите своё ФИО (кириллицей):");
         currentClient.FIO = ConsoleIO.GetOption();
