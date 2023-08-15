@@ -9,30 +9,30 @@ public class Account {
   private static Client currentClient = new Client();
 
 
-  private static boolean isCorrectPIN()
-  {
+  private static boolean isCorrectPIN() {
     int localPIN;
 
-    for (int i = 1; i < 4; i++)
-    {
+    for (int i = 1; i < 4; i++) {
       localPIN = ConsoleIO.inputNumber(1000, 9999, "ПИН-код должен состоять из 4 цифр!");
 
-      if (localPIN == currentClient.PIN)
+      if (localPIN == currentClient.PIN) {
         return true;
+      }
 
-      else if (i != 3)
+      else if (i != 3) {
         System.out.println("\nНеправильный ПИН-код! Осталось попыток: " + (3 - i));
+      }
     }
 
     return false;
   }
 
 
-  private static void addMoney()
-  {
+  private static void addMoney() {
     System.out.println("\nВведите, сколько вы хотите добавить:");
 
-    int sum = ConsoleIO.inputNumber(1, 1000000, "Сумма пополнения должна быть в пределах 1-1000000!");
+    int sum = ConsoleIO.inputNumber(1, 1000000,
+        "Сумма пополнения должна быть в пределах 1-1000000!");
 
     balance += sum;
     currentClient.accountBalance += sum;
@@ -43,21 +43,22 @@ public class Account {
   }
 
 
-  private static void withdrawMoney()
-  {
+  private static void withdrawMoney() {
     System.out.println("\nВведите, сколько вы хотите cнять:");
 
     int sum;
 
-    while (true)
-    {
-      sum = ConsoleIO.inputNumber(1, currentClient.accountBalance,  "Сумма снятия должна быть в пределах 1-" + currentClient.accountBalance + "!");
+    while (true) {
+      sum = ConsoleIO.inputNumber(1, currentClient.accountBalance,
+          "Сумма снятия должна быть в пределах 1-" + currentClient.accountBalance + "!");
 
-      if (sum > balance)
+      if (sum > balance) {
         System.out.println("Снятие невозможно: в банкомате есть всего лишь " + balance + "! Выберите другую сумму.");
+      }
 
-      else
+      else {
         break;
+      }
     }
 
     balance -= sum;
@@ -69,12 +70,10 @@ public class Account {
   }
 
 
-  public static void createClientAccount()
-  {
+  public static void createClientAccount() {
     ConsoleIO.showHeader(balance);
 
     System.out.println("         CОЗДАНИЕ АККАУНТА\n");
-
 
     System.out.println("Введите своё ФИО (кириллицей):");
     currentClient.FIO = ConsoleIO.inputFIO();
@@ -85,39 +84,36 @@ public class Account {
     currentClient.cardNumber = Client.generateCardNumber();
     currentClient.accountBalance = 0;
 
-
     ClientDatabase.clients.add(currentClient);
-    System.out.println("\nАккаунт создан! Номер вашей карты: " + currentClient.cardNumber + "\nНажмите Enter, чтобы выйти на главный экран...");
+    System.out.println("\nАккаунт создан! Номер вашей карты: " + currentClient.cardNumber);
+
+    System.out.println("Нажмите Enter, чтобы выйти на главный экран...");
 
     ConsoleIO.pressEnterToExit();
   }
 
 
-  public static void enterClientAccount()
-  {
+  public static void enterClientAccount() {
     ConsoleIO.showHeader(balance);
 
     System.out.println("          ВХОД В АККАУНТ\n");
 
-
-    while (true)
-    {
+    while (true) {
       System.out.println("Введите номер своей карты в формате XXXX-XXXX-XXXX-XXXX: ");
       currentClient.cardNumber = ConsoleIO.inputCardNumber();
 
-      if (ClientDatabase.getClientByCard(currentClient.cardNumber) != null)
+      if (ClientDatabase.getClientByCard(currentClient.cardNumber) != null) {
         break;
+      }
 
-      else
+      else {
         System.out.println("Номер карты не найден! Попробуйте снова.");
+      }
     }
-
-
 
     currentClient = ClientDatabase.getClientByCard(currentClient.cardNumber);
 
-    if (currentClient.availableSince.after(new Date()))
-    {
+    if (currentClient.availableSince.after(new Date())) {
       long diffInMillies = Math.abs(currentClient.availableSince.getTime() - new Date().getTime());
       long diff = TimeUnit.MINUTES.convert(diffInMillies, TimeUnit.MILLISECONDS);
 
@@ -130,28 +126,21 @@ public class Account {
       return;
     }
 
-
-
     System.out.println("Введите свой ПИН-код (длина - 4 символа): ");
 
-    if (isCorrectPIN())
-    {
+    if (isCorrectPIN()) {
       boolean toContinue = true;
 
-      do
-      {
+      do {
         ConsoleIO.showAccount(balance, currentClient);
 
-        switch (ConsoleIO.inputNumber(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова."))
-        {
-          case (1) ->
-          {
+        switch (ConsoleIO.inputNumber(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова.")) {
+          case (1) -> {
             Account.addMoney();
             ClientDatabase.updateClient(currentClient);
           }
 
-          case (2) ->
-          {
+          case (2) -> {
             Account.withdrawMoney();
             ClientDatabase.updateClient(currentClient);
           }
@@ -159,11 +148,10 @@ public class Account {
           case (3) -> toContinue = false;
         }
 
-      } while(toContinue);
+      } while (toContinue);
     }
 
-    else
-    {
+    else {
       currentClient.availableSince = new Date();
 
       Calendar cal = Calendar.getInstance();
