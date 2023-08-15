@@ -65,7 +65,37 @@ public class ConsoleIO
     }
 
 
-    public static int GetOption(long lower_boundary, long upper_boundary, String errorMessage)
+    // Для ввода номера карты
+    public static long GetOption(long lower_boundary, long upper_boundary)
+    {
+        long res;
+
+
+        while(true)
+        {
+            while(!sc.hasNextLong())
+            {
+                System.out.println("\nНекорректное значение! Попробуйте снова.");
+                sc.next();
+            }
+
+
+            res = sc.nextLong();
+
+            if (res >= lower_boundary && res <= upper_boundary)
+                break;
+
+            else
+                System.out.println("\nНомер карты должен состоять из 16 цифр! Попробуйте снова.");
+        }
+
+
+        return res;
+    }
+
+
+    // Для ввода опций
+    public static int GetOption(int lower_boundary, int upper_boundary, String errorMessage)
     {
         int res;
 
@@ -93,6 +123,7 @@ public class ConsoleIO
     }
 
 
+    // Для ввода ФИО
     public static String GetOption()
     {
         String input;
@@ -117,8 +148,6 @@ public class ConsoleIO
     private static boolean isValidatedPIN()
     {
         int localPIN;
-
-        System.out.print("Введите ПИН-код: ");
 
 
         for (int i = 1; i < 4; i++)
@@ -203,7 +232,7 @@ public class ConsoleIO
         while (true)
         {
             System.out.println("Введите номер своей карты в формате XXXXXXXXXXXXXXXX: ");
-            currentClient.cardNumber = ConsoleIO.GetOption(1000000000000000L, 9999999999999999L, "Номер карты должен состоять из 16 цифр! Попробуйте снова.");
+            currentClient.cardNumber = ConsoleIO.GetOption(1000000000000000L, 9999999999999999L);
 
             if (ClientDatabase.GetClientByCard(currentClient.cardNumber) != null)
                 break;
