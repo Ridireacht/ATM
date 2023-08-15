@@ -12,12 +12,11 @@ public class Main
             ConsoleIO.balance = FileIO.getBalance();
         }
 
-        catch(IOException e1)
+        catch(IOException e)
         {
             System.out.println("При чтении файла возникла непредвиденная ошибка! Нажмите Enter, чтобы выйти...");
 
-            try { System.in.read(); }
-            catch (IOException e2) { System.out.println("\nПри попытке считать нажатие Enter возникла непредвиденная ошибка!"); }
+            ConsoleIO.pressEnterToExit();
 
             System.exit(0);
         }
@@ -41,12 +40,11 @@ public class Main
 
             try { FileIO.writeToFile(ConsoleIO.balance, ClientDatabase.clients); }
 
-            catch(IOException e1)
+            catch(IOException e)
             {
                 System.out.println("При записи файла возникла непредвиденная ошибка! Нажмите Enter, чтобы выйти...");
 
-                try { System.in.read(); }
-                catch (IOException e2) { System.out.println("\nПри попытке считать нажатие Enter возникла непредвиденная ошибка!"); }
+                ConsoleIO.pressEnterToExit();
 
                 System.exit(0);
             }

@@ -33,6 +33,13 @@ public class ConsoleIO
     }
 
 
+    public static void pressEnterToExit()
+    {
+        try { System.in.read(); }
+        catch (IOException e2) { System.out.println("\nПри попытке считать нажатие Enter возникла непредвиденная ошибка!"); }
+    }
+
+
     private static void showHeader()
     {
         ConsoleIO.clear();
@@ -183,8 +190,7 @@ public class ConsoleIO
 
         System.out.println("Счёт успешно пополнен! Для возврата к аккаунту нажмите Enter...");
 
-        try { System.in.read(); }
-        catch (IOException e) { System.out.println("\nПри попытке считать нажатие Enter возникла непредвиденная ошибка!"); }
+        ConsoleIO.pressEnterToExit();
     }
 
 
@@ -210,8 +216,7 @@ public class ConsoleIO
 
         System.out.println("Деньги успешно выведены! Для возврата к аккаунту нажмите Enter...");
 
-        try { System.in.read(); }
-        catch (IOException e) { System.out.println("\nПри попытке считать нажатие Enter возникла непредвиденная ошибка!"); }
+        ConsoleIO.pressEnterToExit();
     }
 
 
@@ -235,8 +240,7 @@ public class ConsoleIO
         ClientDatabase.clients.add(currentClient);
         System.out.println("\nАккаунт создан! Номер вашей карты: " + currentClient.cardNumber + "\nНажмите Enter, чтобы выйти на главный экран...");
 
-        try { System.in.read(); }
-        catch (IOException e) { System.out.println("\nПри попытке считать нажатие Enter возникла непредвиденная ошибка!"); }
+        ConsoleIO.pressEnterToExit();
     }
 
 
@@ -272,8 +276,7 @@ public class ConsoleIO
             System.out.println("Время до снятия блокировки: " + diff + " минут.");
             System.out.println("Нажмите Enter, чтобы выйти в главное меню...");
 
-            try { System.in.read(); }
-            catch (IOException e) { System.out.println("\nПри попытке считать нажатие Enter возникла непредвиденная ошибка!"); }
+            ConsoleIO.pressEnterToExit();
 
             return;
         }
@@ -322,8 +325,7 @@ public class ConsoleIO
             System.out.println("\nПИН-код был неверно введён 3 раза, аккаунт заблокирован на день.");
             System.out.println("Нажмите Enter, чтобы выйти в главное меню...");
 
-            try { System.in.read(); }
-            catch (IOException e) { System.out.println("\nПри попытке считать нажатие Enter возникла непредвиденная ошибка!"); }
+            ConsoleIO.pressEnterToExit();
         }
     }
 
