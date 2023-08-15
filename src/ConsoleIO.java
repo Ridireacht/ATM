@@ -12,7 +12,7 @@ public class ConsoleIO
 
 
 
-    public static void Clear()
+    private static void Clear()
     {
         try
         {
@@ -32,7 +32,7 @@ public class ConsoleIO
     }
 
 
-    public static void ShowHeader()
+    private static void ShowHeader()
     {
         ConsoleIO.Clear();
 
@@ -54,7 +54,7 @@ public class ConsoleIO
     }
 
 
-    public static void ShowAccount()
+    private static void ShowAccount()
     {
         ShowHeader();
 
@@ -113,7 +113,7 @@ public class ConsoleIO
     }
 
 
-    public static boolean isValidatedPIN()
+    private static boolean isValidatedPIN()
     {
         int localPIN;
 
@@ -137,7 +137,7 @@ public class ConsoleIO
     }
 
 
-    public static void AddMoney()
+    private static void AddMoney()
     {
         int sum = ConsoleIO.GetOption(0, 1000000, "Сумма пополнения должна быть больше 0 и меньше 1000000!");
 
@@ -149,7 +149,7 @@ public class ConsoleIO
     }
 
 
-    public static void WithdrawMoney()
+    private static void WithdrawMoney()
     {
         int sum;
 
