@@ -122,16 +122,16 @@ public class Account {
       long diffInMillies = Math.abs(currentClient.availableSince.getTime() - new Date().getTime());
       long diff = TimeUnit.MINUTES.convert(diffInMillies, TimeUnit.MILLISECONDS);
 
-      System.out.println("Данный аккаунт всё ещё заблокирован!");
+      System.out.println("\nДанный аккаунт всё ещё заблокирован!");
       System.out.println("Время до снятия блокировки: " + diff + " минут.");
-      System.out.println("Нажмите Enter, чтобы выйти в главное меню...");
+      System.out.println("\nНажмите Enter, чтобы выйти в главное меню...");
 
       ConsoleIO.pressEnterToExit();
 
       return;
     }
 
-    System.out.println("Введите свой ПИН-код (длина - 4 символа): ");
+    System.out.println("\nВведите свой ПИН-код (длина - 4 символа): ");
 
     if (isCorrectPIN()) {
       boolean toContinue = true;
@@ -165,7 +165,7 @@ public class Account {
       currentClient.availableSince = cal.getTime();
 
       System.out.println("\nПИН-код был неверно введён 3 раза, аккаунт заблокирован на день.");
-      System.out.println("Нажмите Enter, чтобы выйти в главное меню...");
+      System.out.println("\nНажмите Enter, чтобы выйти в главное меню...");
 
       ConsoleIO.pressEnterToExit();
     }
