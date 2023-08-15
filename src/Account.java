@@ -28,6 +28,23 @@ public class Account {
   }
 
 
+  private static void verifyCardNumber() {
+    System.out.println("Введите номер своей карты в формате XXXX-XXXX-XXXX-XXXX: ");
+
+    while (true) {
+      currentClient.cardNumber = ConsoleIO.inputCardNumber();
+
+      if (ClientDatabase.getClientByCard(currentClient.cardNumber) != null) {
+        break;
+      }
+
+      else {
+        System.out.println("Номер карты не найден! Попробуйте снова.");
+      }
+    }
+  }
+
+
   private static void addMoney() {
     System.out.println("\nВведите, сколько вы хотите добавить:");
 
@@ -98,19 +115,7 @@ public class Account {
 
     System.out.println("          ВХОД В АККАУНТ\n");
 
-    while (true) {
-      System.out.println("Введите номер своей карты в формате XXXX-XXXX-XXXX-XXXX: ");
-      currentClient.cardNumber = ConsoleIO.inputCardNumber();
-
-      if (ClientDatabase.getClientByCard(currentClient.cardNumber) != null) {
-        break;
-      }
-
-      else {
-        System.out.println("Номер карты не найден! Попробуйте снова.");
-      }
-    }
-
+    verifyCardNumber();
     currentClient = ClientDatabase.getClientByCard(currentClient.cardNumber);
 
     if (currentClient.availableSince.after(new Date())) {
