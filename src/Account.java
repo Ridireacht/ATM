@@ -102,8 +102,8 @@ public class Account {
 
     while (true)
     {
-      System.out.println("Введите номер своей карты в формате XXXXXXXXXXXXXXXX: ");
-      currentClient.cardNumber = ConsoleIO.inputCardNumber(1000000000000000L, 9999999999999999L);
+      System.out.println("Введите номер своей карты в формате XXXX-XXXX-XXXX-XXXX: ");
+      currentClient.cardNumber = ConsoleIO.inputCardNumber();
 
       if (ClientDatabase.getClientByCard(currentClient.cardNumber) != null)
         break;
