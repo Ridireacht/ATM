@@ -8,6 +8,7 @@ public class ConsoleIO
 {
     public static int balance;
     private static Client currentClient = new Client();
+    private static Scanner sc = new Scanner(System.in);
 
 
 
@@ -66,7 +67,6 @@ public class ConsoleIO
     public static int GetOption(long lower_boundary, long upper_boundary, String errorMessage)
     {
         int res;
-        Scanner sc = new Scanner(System.in);
 
 
         while(true)
@@ -88,7 +88,6 @@ public class ConsoleIO
         }
 
 
-        sc.close();
         return res;
     }
 
@@ -96,12 +95,11 @@ public class ConsoleIO
     public static String GetOption(String errorMessage)
     {
         String input;
-        Scanner sc = new Scanner(System.in);
 
 
         while(true)
         {
-            input = sc.next();
+            input = sc.nextLine();
 
             if (input.matches("[а-яА-Я]+"))
                 break;
@@ -111,7 +109,6 @@ public class ConsoleIO
         }
 
 
-        sc.close();
         return input;
     }
 
@@ -148,7 +145,6 @@ public class ConsoleIO
         currentClient.accountBalance += sum;
 
         System.out.println("Счёт успешно пополнен! Для возврата к аккаунту нажмите любую кнопку...");
-        Scanner sc = new Scanner(System.in);
         sc.next();
     }
 
@@ -172,7 +168,6 @@ public class ConsoleIO
         currentClient.accountBalance -= sum;
 
         System.out.println("Деньги успешно выведены! Для возврата к аккаунту нажмите любую кнопку...");
-        Scanner sc = new Scanner(System.in);
         sc.next();
     }
 
@@ -195,7 +190,6 @@ public class ConsoleIO
         ClientDatabase.clients.add(currentClient);
         System.out.println("\nАккаунт создан! Нажмите любую кнопку, чтобы выйти на главный экран...");
 
-        Scanner sc = new Scanner(System.in);
         sc.next();
     }
 
@@ -229,7 +223,6 @@ public class ConsoleIO
             System.out.println("Данный аккаунт всё ещё заблокирован!");
             System.out.println("Время до снятия блокировки: " + diff + " минут.");
             System.out.println("Нажмите любую кнопку, чтобы выйти в главное меню...");
-            Scanner sc = new Scanner(System.in);
             sc.next();
 
             return;
@@ -281,7 +274,6 @@ public class ConsoleIO
             currentClient.availableSince = cal.getTime();
 
             System.out.println("Нажмите любую кнопку, чтобы выйти в главное меню...");
-            Scanner sc = new Scanner(System.in);
             sc.next();
         }
     }
