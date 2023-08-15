@@ -9,7 +9,7 @@ public class Main
         {
             FileIO.readFromFile();
             ClientDatabase.clients = FileIO.getClientList();
-            ConsoleIO.balance = FileIO.getBalance();
+            AccountActions.balance = FileIO.getBalance();
         }
 
         catch(IOException e)
@@ -27,18 +27,18 @@ public class Main
 
         do
         {
-            ConsoleIO.showMainMenu();
+            ConsoleIO.showMainMenu(AccountActions.balance);
 
 
             switch (ConsoleIO.getOption(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова."))
             {
-                case (1) -> ConsoleIO.createClientAccount();
-                case (2) -> ConsoleIO.enterClientAccount();
+                case (1) -> AccountActions.createClientAccount();
+                case (2) -> AccountActions.enterClientAccount();
                 case (3) -> toContinue = false;
             }
 
 
-            try { FileIO.writeToFile(ConsoleIO.balance, ClientDatabase.clients); }
+            try { FileIO.writeToFile(AccountActions.balance, ClientDatabase.clients); }
 
             catch(IOException e)
             {
