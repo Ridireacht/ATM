@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
@@ -174,8 +175,10 @@ public class ConsoleIO
         balance += sum;
         currentClient.accountBalance += sum;
 
-        System.out.println("Счёт успешно пополнен! Для возврата к аккаунту нажмите любую кнопку...");
-        sc.next();
+        System.out.println("Счёт успешно пополнен! Для возврата к аккаунту нажмите Enter...");
+
+        try { System.in.read(); }
+        catch (IOException e) { System.out.println("Возникла непредвиденная ошибка!"); }
     }
 
 
@@ -197,8 +200,10 @@ public class ConsoleIO
         balance -= sum;
         currentClient.accountBalance -= sum;
 
-        System.out.println("Деньги успешно выведены! Для возврата к аккаунту нажмите любую кнопку...");
-        sc.next();
+        System.out.println("Деньги успешно выведены! Для возврата к аккаунту нажмите Enter...");
+
+        try { System.in.read(); }
+        catch (IOException e) { System.out.println("Возникла непредвиденная ошибка!"); }
     }
 
 
@@ -218,9 +223,10 @@ public class ConsoleIO
 
 
         ClientDatabase.clients.add(currentClient);
-        System.out.println("\nАккаунт создан! Номер вашей карты: " + currentClient.cardNumber + "\nНажмите любую кнопку, чтобы выйти на главный экран...");
+        System.out.println("\nАккаунт создан! Номер вашей карты: " + currentClient.cardNumber + "\nНажмите Enter, чтобы выйти на главный экран...");
 
-        sc.next();
+        try { System.in.read(); }
+        catch (IOException e) { System.out.println("Возникла непредвиденная ошибка!"); }
     }
 
 
@@ -252,8 +258,10 @@ public class ConsoleIO
 
             System.out.println("Данный аккаунт всё ещё заблокирован!");
             System.out.println("Время до снятия блокировки: " + diff + " минут.");
-            System.out.println("Нажмите любую кнопку, чтобы выйти в главное меню...");
-            sc.next();
+            System.out.println("Нажмите Enter, чтобы выйти в главное меню...");
+
+            try { System.in.read(); }
+            catch (IOException e) { System.out.println("Возникла непредвиденная ошибка!"); }
 
             return;
         }
@@ -290,8 +298,10 @@ public class ConsoleIO
             currentClient.availableSince = cal.getTime();
 
             System.out.println("\nПИН-код был неверно введён 3 раза, аккаунт заблокирован на день.");
-            System.out.println("Нажмите любую кнопку, чтобы выйти в главное меню...");
-            sc.next();
+            System.out.println("Нажмите Enter, чтобы выйти в главное меню...");
+
+            try { System.in.read(); }
+            catch (IOException e) { System.out.println("Возникла непредвиденная ошибка!"); }
         }
     }
 

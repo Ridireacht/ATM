@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.util.Scanner;
 
 
 public class Main
@@ -15,10 +14,11 @@ public class Main
 
         catch(IOException e)
         {
-            Scanner sc = new Scanner(System.in);
+            System.out.println("При чтении файла возникла непредвиденная ошибка! Нажмите Enter, чтобы выйти...");
 
-            System.out.println("При чтении файла возникла непредвиденная ошибка! Нажмите любую кнопку, чтобы выйти...");
-            sc.next();
+            try { System.in.read(); }
+            catch (IOException e1) { System.out.println("Возникла непредвиденная ошибка!"); }
+
             System.exit(0);
         }
 
@@ -39,17 +39,15 @@ public class Main
             }
 
 
-            try
-            {
-                FileIO.WriteToFile(ConsoleIO.balance, ClientDatabase.clients);
-            }
+            try { FileIO.WriteToFile(ConsoleIO.balance, ClientDatabase.clients); }
 
             catch(IOException e)
             {
-                Scanner sc = new Scanner(System.in);
+                System.out.println("При записи файла возникла непредвиденная ошибка! Нажмите Enter, чтобы выйти...");
 
-                System.out.println("При записи файла возникла непредвиденная ошибка! Нажмите любую кнопку, чтобы выйти...");
-                sc.next();
+                try { System.in.read(); }
+                catch (IOException e1) { System.out.println("Возникла непредвиденная ошибка!"); }
+
                 System.exit(0);
             }
 
