@@ -217,6 +217,7 @@ public class ConsoleIO
 
         System.out.println("         CОЗДАНИЕ АККАУНТА\n");
 
+
         System.out.println("Введите своё ФИО (кириллицей):");
         currentClient.FIO = ConsoleIO.GetOption();
 
@@ -238,6 +239,8 @@ public class ConsoleIO
     public static void EnterClientAccount()
     {
         ShowHeader();
+
+        System.out.println("          ВХОД В АККАУНТ\n");
 
 
         while (true)
