@@ -4,20 +4,27 @@ import java.util.Date;
 public class Client {
 
   public String FIO;
-  public long cardNumber;
+  public String cardNumber;
   public int PIN;
   public int accountBalance;
   public Date availableSince = new Date();
 
 
-  public static long generateCardNumber() {
-    long number;
+  public static String generateCardNumber() {
+    int numberPart;
+    String cardNumber = "";
 
     do {
-      number = 1000000000000000L + (long) (Math.random() * (9999999999999999L - 1000000000000000L));
-    }
-    while (ClientDatabase.getClientByCard(number) != null);
+      for (int i = 0; i < 4; i++) {
+        numberPart = (int) (1000 + (Math.random() * (9999 - 1000)));
+        cardNumber += numberPart;
 
-    return number;
+        if (i != 3)
+          cardNumber += "-";
+      }
+    }
+    while (ClientDatabase.getClientByCard(cardNumber) != null);
+
+    return cardNumber;
   }
 }
