@@ -99,7 +99,7 @@ public class ConsoleIO
 
         while(true)
         {
-            input = sc.nextLine();
+            input = sc.next();
 
             if (input.matches("[а-яА-Я]+"))
                 break;
