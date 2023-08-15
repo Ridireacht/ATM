@@ -35,12 +35,12 @@ public class ConsoleIO
     {
         ConsoleIO.Clear();
 
-        System.out.println("////////////////////////");
-        System.out.println("/       БАНКОМАТ       /");
-        System.out.println("////////////////////////");
+        System.out.println("////////////////////////////////////");
+        System.out.println("/             БАНКОМАТ             /");
+        System.out.println("////////////////////////////////////");
 
         System.out.println("\n Баланс банкомата: " + balance);
-        System.out.println("________________________\n");
+        System.out.println("____________________________________\n");
     }
 
 
