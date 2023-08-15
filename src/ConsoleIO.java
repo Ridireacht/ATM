@@ -48,6 +48,7 @@ public class ConsoleIO
     public static void ShowMainMenu()
     {
         ShowHeader();
+
         System.out.println("           ГЛАВНОЕ МЕНЮ\n");
         System.out.println("Возможные опции:\n1. Создать счёт\n2. Войти в счёт\n3. Завершить работу\n");
         System.out.println("Введите номер интересующей опции:");
@@ -92,20 +93,20 @@ public class ConsoleIO
     }
 
 
-    public static String GetOption(String errorMessage)
+    public static String GetOption()
     {
         String input;
 
 
         while(true)
         {
-            input = sc.next();
+            input = sc.nextLine();
 
-            if (input.matches("[а-яА-Я]+"))
+            if (input.matches("[а-яА-Я ]+"))
                 break;
 
             else
-                System.out.println("\n" + errorMessage);;
+                System.out.println("\nНекорректное значение! Попробуйте снова.");;
         }
 
 
@@ -177,8 +178,8 @@ public class ConsoleIO
         ShowHeader();
 
 
-        System.out.println("Введите своё ФИО (кириллицей): ");
-        currentClient.FIO = ConsoleIO.GetOption("Некорректное значение! Попробуйте снова.");
+        System.out.println("Введите своё ФИО (кириллицей):");
+        currentClient.FIO = ConsoleIO.GetOption();
 
         System.out.println("Введите ПИН-код (должен состоять из 4 цифр): ");
         currentClient.PIN = ConsoleIO.GetOption(999, 10000, "ПИН-код должен состоять из 4 цифр!");
