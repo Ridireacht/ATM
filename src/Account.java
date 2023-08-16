@@ -62,7 +62,8 @@ public class Account {
 
   private static void withdrawMoney() {
     if (currentClient.accountBalance == 0) {
-      System.out.println("\nВаш счёт пуст! Попробуйте другую опцию.");
+      System.out.println("\nВаш счёт пуст! Чтобы попробовать другую опцию, нажмите Enter...");
+      ConsoleIO.pressEnterToExit();
       return;
     }
 
