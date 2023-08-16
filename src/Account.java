@@ -54,7 +54,7 @@ public class Account {
     balance += sum;
     currentClient.accountBalance += sum;
 
-    System.out.println("Счёт успешно пополнен! Для возврата к аккаунту нажмите Enter...");
+    System.out.println("\nСчёт успешно пополнен! Для возврата к аккаунту нажмите Enter...");
 
     ConsoleIO.pressEnterToExit();
   }
@@ -81,7 +81,7 @@ public class Account {
     balance -= sum;
     currentClient.accountBalance -= sum;
 
-    System.out.println("Деньги успешно выведены! Для возврата к аккаунту нажмите Enter...");
+    System.out.println("\nДеньги успешно выведены! Для возврата к аккаунту нажмите Enter...");
 
     ConsoleIO.pressEnterToExit();
   }
