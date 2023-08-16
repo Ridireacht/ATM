@@ -115,8 +115,9 @@ public class Account {
     currentClient.accountBalance = 0;
 
     ClientDatabase.clients.add(currentClient);
-    System.out.println("\nАккаунт создан! Номер вашей карты: " + currentClient.cardNumber);
+    FileIO.writeToFile(Account.balance, ClientDatabase.clients);
 
+    System.out.println("\nАккаунт создан! Номер вашей карты: " + currentClient.cardNumber);
     System.out.println("\nНажмите Enter, чтобы выйти на главный экран...");
 
     ConsoleIO.pressEnterToExit();
