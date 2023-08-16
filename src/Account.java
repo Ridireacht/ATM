@@ -61,6 +61,12 @@ public class Account {
 
 
   private static void withdrawMoney() {
+    if (currentClient.accountBalance == 0) {
+      System.out.println("\nВаш счёт пуст! Попробуйте другую опцию.");
+      return;
+    }
+
+
     System.out.println("\nВведите, сколько вы хотите cнять:");
 
     int sum;
@@ -70,7 +76,7 @@ public class Account {
           "Сумма снятия должна быть в пределах 1-" + currentClient.accountBalance + "!");
 
       if (sum > balance) {
-        System.out.println("Снятие невозможно: в банкомате есть всего лишь " + balance + "! Выберите другую сумму.");
+        System.out.println("Снятие невозможно: в банкомате есть только " + balance + "! Выберите другую сумму.");
       }
 
       else {
