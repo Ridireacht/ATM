@@ -11,14 +11,14 @@ import java.util.Scanner;
 
 public class FileIO {
 
-  private static int balance = 100000;
+  private static long balance = 100000;
   private static ArrayList<Client> clientList = new ArrayList<>();
 
 
-  public static void writeToFile(int balance, ArrayList<Client> clientList) throws IOException {
+  public static void writeToFile(long balance, ArrayList<Client> clientList) throws IOException {
     FileWriter fw = new FileWriter("database.txt");
 
-    fw.write(Integer.toString(balance));
+    fw.write(Long.toString(balance));
 
     for (var client : clientList) {
       fw.write("\n\n" + client.accountBalance + "\n");
@@ -51,7 +51,7 @@ public class FileIO {
       sc.nextLine();
       clientList.add(new Client());
 
-      clientList.get(clientList.size() - 1).accountBalance = Integer.parseInt(sc.nextLine());
+      clientList.get(clientList.size() - 1).accountBalance = Long.parseLong(sc.nextLine());
       clientList.get(clientList.size() - 1).FIO = sc.nextLine();
       clientList.get(clientList.size() - 1).PIN = Integer.parseInt(sc.nextLine());
       clientList.get(clientList.size() - 1).cardNumber = sc.nextLine();
@@ -63,7 +63,7 @@ public class FileIO {
   }
 
 
-  public static int getBalance() {
+  public static long getBalance() {
     return balance;
   }
 

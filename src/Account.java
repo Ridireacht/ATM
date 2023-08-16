@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Account {
 
-  public static int balance;
+  public static long balance;
   private static Client currentClient = new Client();
 
 
@@ -73,7 +73,7 @@ public class Account {
     int sum;
 
     while (true) {
-      sum = ConsoleIO.inputNumber(1, currentClient.accountBalance,
+      sum = ConsoleIO.inputNumber(1, currentClient.accountBalance < 1000000 ? (int) currentClient.accountBalance : 1000000,
           "Сумма снятия должна быть в пределах 1-" + currentClient.accountBalance + "!");
 
       if (sum > balance) {

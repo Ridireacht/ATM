@@ -6,7 +6,7 @@ public class Client {
   public String FIO;
   public String cardNumber;
   public int PIN;
-  public int accountBalance;
+  public long accountBalance;
   public Date availableSince = new Date();
 
 

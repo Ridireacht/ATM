@@ -36,7 +36,7 @@ public class ConsoleIO {
   }
 
 
-  public static void showHeader(int balance) {
+  public static void showHeader(long balance) {
     ConsoleIO.clear();
 
     System.out.println("////////////////////////////////////");
@@ -48,7 +48,7 @@ public class ConsoleIO {
   }
 
 
-  public static void showMainMenu(int balance) {
+  public static void showMainMenu(long balance) {
     showHeader(balance);
 
     System.out.println("            ГЛАВНОЕ МЕНЮ\n");
@@ -57,7 +57,7 @@ public class ConsoleIO {
   }
 
 
-  public static void showAccount(int balance, Client client) {
+  public static void showAccount(long balance, Client client) {
     showHeader(balance);
 
     System.out.println("              АККАУНТ\n");
