@@ -170,6 +170,9 @@ public class Account {
       cal.add(Calendar.DATE, 1);
       currentClient.availableSince = cal.getTime();
 
+      ClientDatabase.updateClient(currentClient);
+      FileIO.writeToFile(Account.balance, ClientDatabase.clients);
+
       System.out.println("\nПИН-код был неверно введён 3 раза, аккаунт заблокирован на день.");
       System.out.println("\nНажмите Enter, чтобы выйти в главное меню...");
 
