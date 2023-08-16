@@ -5,22 +5,9 @@ public class Main
 {
     public static void main(String[] args)
     {
-        try
-        {
-            FileIO.readFromFile();
-            ClientDatabase.clients = FileIO.getClientList();
-            Account.balance = FileIO.getBalance();
-        }
-
-        catch(IOException e)
-        {
-            System.out.println("При чтении файла возникла непредвиденная ошибка! Нажмите Enter, чтобы выйти...");
-
-            ConsoleIO.pressEnterToExit();
-
-            System.exit(0);
-        }
-
+        FileIO.readFromFile();
+        ClientDatabase.clients = FileIO.getClientList();
+        Account.balance = FileIO.getBalance();
 
 
         boolean toContinue = true;
@@ -38,16 +25,7 @@ public class Main
             }
 
 
-            try { FileIO.writeToFile(Account.balance, ClientDatabase.clients); }
-
-            catch(IOException e)
-            {
-                System.out.println("При записи файла возникла непредвиденная ошибка! Нажмите Enter, чтобы выйти...");
-
-                ConsoleIO.pressEnterToExit();
-
-                System.exit(0);
-            }
+            FileIO.writeToFile(Account.balance, ClientDatabase.clients);
 
         } while(toContinue);
 
