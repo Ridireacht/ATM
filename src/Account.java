@@ -54,6 +54,9 @@ public class Account {
     balance += sum;
     currentClient.accountBalance += sum;
 
+    ClientDatabase.updateClient(currentClient);
+    FileIO.writeToFile(Account.balance, ClientDatabase.clients);
+
     System.out.println("\nСчёт успешно пополнен! Для возврата к аккаунту нажмите Enter...");
 
     ConsoleIO.pressEnterToExit();
@@ -87,6 +90,9 @@ public class Account {
 
     balance -= sum;
     currentClient.accountBalance -= sum;
+
+    ClientDatabase.updateClient(currentClient);
+    FileIO.writeToFile(Account.balance, ClientDatabase.clients);
 
     System.out.println("\nДеньги успешно выведены! Для возврата к аккаунту нажмите Enter...");
 
@@ -146,17 +152,10 @@ public class Account {
       do {
         ConsoleIO.showAccount(balance, currentClient);
 
-        switch (ConsoleIO.inputNumber(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова.")) {
-          case (1) -> {
-            Account.addMoney();
-            ClientDatabase.updateClient(currentClient);
-          }
-
-          case (2) -> {
-            Account.withdrawMoney();
-            ClientDatabase.updateClient(currentClient);
-          }
-
+        switch (ConsoleIO.inputNumber(1, 3, "Выбор должен быть от 1 до 3! Попробуйте снова."))
+        {
+          case (1) -> Account.addMoney();
+          case (2) -> Account.withdrawMoney();
           case (3) -> toContinue = false;
         }
 
